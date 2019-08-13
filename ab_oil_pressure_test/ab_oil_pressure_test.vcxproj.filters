@@ -34,6 +34,12 @@
     <ClCompile Include="element_ex.cpp">
       <Filter>element</Filter>
     </ClCompile>
+    <ClCompile Include="dls.cpp">
+      <Filter>uwi</Filter>
+    </ClCompile>
+    <ClCompile Include="record_type_ex.cpp">
+      <Filter>record</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="parse_xml.h">
@@ -72,6 +78,15 @@
     <ClInclude Include="element_ex.h">
       <Filter>element</Filter>
     </ClInclude>
+    <ClInclude Include="dls.h">
+      <Filter>uwi</Filter>
+    </ClInclude>
+    <ClInclude Include="record_type.h">
+      <Filter>record</Filter>
+    </ClInclude>
+    <ClInclude Include="record_type_ex.h">
+      <Filter>record</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="parse">
@@ -82,6 +97,9 @@
     </Filter>
     <Filter Include="element">
       <UniqueIdentifier>{0391049e-bb41-47ab-90ff-f28d0978885b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="uwi">
+      <UniqueIdentifier>{f35441a7-2c42-4242-a031-930ef3284fc5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

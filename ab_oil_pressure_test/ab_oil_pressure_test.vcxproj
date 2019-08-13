@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="dls.cpp" />
     <ClCompile Include="element_ex.cpp" />
     <ClCompile Include="parse.cpp" />
     <ClCompile Include="parse_csv.cpp" />
@@ -30,8 +31,10 @@
     <ClCompile Include="record03.cpp" />
     <ClCompile Include="record04.cpp" />
     <ClCompile Include="record05.cpp" />
+    <ClCompile Include="record_type_ex.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="dls.h" />
     <ClInclude Include="element.h" />
     <ClInclude Include="element_ex.h" />
     <ClInclude Include="parse.h" />
@@ -44,6 +47,8 @@
     <ClInclude Include="record03.h" />
     <ClInclude Include="record04.h" />
     <ClInclude Include="record05.h" />
+    <ClInclude Include="record_type.h" />
+    <ClInclude Include="record_type_ex.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
