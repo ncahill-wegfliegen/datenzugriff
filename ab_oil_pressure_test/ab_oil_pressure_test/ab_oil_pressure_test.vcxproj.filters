@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="parse.cpp">
+      <Filter>parse</Filter>
+    </ClCompile>
+    <ClCompile Include="record.cpp">
+      <Filter>record</Filter>
+    </ClCompile>
+    <ClCompile Include="record00.cpp">
+      <Filter>record</Filter>
+    </ClCompile>
+    <ClCompile Include="record01.cpp">
+      <Filter>record</Filter>
+    </ClCompile>
+    <ClCompile Include="record02.cpp">
+      <Filter>record</Filter>
+    </ClCompile>
+    <ClCompile Include="record03.cpp">
+      <Filter>record</Filter>
+    </ClCompile>
+    <ClCompile Include="record04.cpp">
+      <Filter>record</Filter>
+    </ClCompile>
+    <ClCompile Include="record05.cpp">
+      <Filter>record</Filter>
+    </ClCompile>
+    <ClCompile Include="element_ex.cpp">
+      <Filter>element</Filter>
+    </ClCompile>
+    <ClCompile Include="dls.cpp">
+      <Filter>uwi</Filter>
+    </ClCompile>
+    <ClCompile Include="record_type_ex.cpp">
+      <Filter>record</Filter>
+    </ClCompile>
+    <ClCompile Include="parse_xml.cpp">
+      <Filter>parse\xml</Filter>
+    </ClCompile>
+    <ClCompile Include="ab_oil_pressure_test.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="key.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="parse_txt.cpp">
+      <Filter>parse\txt</Filter>
+    </ClCompile>
+    <ClCompile Include="test_type_ex.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="txt_parser.cpp">
+      <Filter>parse\txt</Filter>
+    </ClCompile>
+    <ClCompile Include="const_iterator_txt.cpp">
+      <Filter>parse\txt</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="parse.h">
+      <Filter>parse</Filter>
+    </ClInclude>
+    <ClInclude Include="record.h">
+      <Filter>record</Filter>
+    </ClInclude>
+    <ClInclude Include="record00.h">
+      <Filter>record</Filter>
+    </ClInclude>
+    <ClInclude Include="record01.h">
+      <Filter>record</Filter>
+    </ClInclude>
+    <ClInclude Include="record02.h">
+      <Filter>record</Filter>
+    </ClInclude>
+    <ClInclude Include="record03.h">
+      <Filter>record</Filter>
+    </ClInclude>
+    <ClInclude Include="record04.h">
+      <Filter>record</Filter>
+    </ClInclude>
+    <ClInclude Include="record05.h">
+      <Filter>record</Filter>
+    </ClInclude>
+    <ClInclude Include="element.h">
+      <Filter>element</Filter>
+    </ClInclude>
+    <ClInclude Include="element_ex.h">
+      <Filter>element</Filter>
+    </ClInclude>
+    <ClInclude Include="dls.h">
+      <Filter>uwi</Filter>
+    </ClInclude>
+    <ClInclude Include="record_type.h">
+      <Filter>record</Filter>
+    </ClInclude>
+    <ClInclude Include="record_type_ex.h">
+      <Filter>record</Filter>
+    </ClInclude>
+    <ClInclude Include="parse_xml.h">
+      <Filter>parse\xml</Filter>
+    </ClInclude>
+    <ClInclude Include="ab_oil_pressure_test.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="key.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="parse_txt.h">
+      <Filter>parse\txt</Filter>
+    </ClInclude>
+    <ClInclude Include="test_type_ex.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="test_type.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="txt_parser.h">
+      <Filter>parse\txt</Filter>
+    </ClInclude>
+    <ClInclude Include="const_iterator_txt.h">
+      <Filter>parse\txt</Filter>
+    </ClInclude>
+    <ClInclude Include="const_iterator.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="forward_list.h">
+      <Filter>test</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="parse">
+      <UniqueIdentifier>{4827715e-5ead-4e80-816d-98c6b51f1cf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="record">
+      <UniqueIdentifier>{a5cd7019-5c8c-4793-9261-160145c3d882}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="element">
+      <UniqueIdentifier>{0391049e-bb41-47ab-90ff-f28d0978885b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="uwi">
+      <UniqueIdentifier>{f35441a7-2c42-4242-a031-930ef3284fc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="parse\xml">
+      <UniqueIdentifier>{0d146660-a2a8-40d5-a5f1-83a5f8148890}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test">
+      <UniqueIdentifier>{d487661f-bb2e-4342-9526-dd2d2af3bea2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="parse\txt">
+      <UniqueIdentifier>{3bdcb854-4cc9-4e5c-bf4c-b00b36a9267e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
+</Project>
