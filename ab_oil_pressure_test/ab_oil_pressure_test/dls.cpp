@@ -397,7 +397,7 @@ string nhill::uwi::Dls::full_dressed() const
 }
 
 template<> inline
-auto nhill::comparex( const uwi::Dls& a, const uwi::Dls& b ) noexcept -> Compare
+auto nhill::compare( const uwi::Dls& a, const uwi::Dls& b ) noexcept -> Compare
 {
    if( a.twp() < b.twp() )
    {
@@ -462,7 +462,7 @@ bool nhill::uwi::operator==( const Dls& a, const Dls& b )
       && a.rg () == b.rg ()
       && a.m  () == b.m  ()
       && a.rgd() == b.rgd()
-      && a.es () == b.es ();
+      && a.ces () == b.ces ();
 }
 
 bool nhill::uwi::operator!=( const Dls& a, const Dls& b )
@@ -472,12 +472,12 @@ bool nhill::uwi::operator!=( const Dls& a, const Dls& b )
 
 bool nhill::uwi::operator<( const Dls& a, const Dls& b )
 {
-   return comparex(a,b) == Compare::less;
+   return compare<const Dls&>(a,b) == Compare::less;
 }
 
 bool nhill::uwi::operator>( const Dls& a, const Dls& b )
 {
-   return comparex(a,b) == Compare::greater;
+   return compare<const Dls&>(a,b) == Compare::greater;
 }
 
 bool nhill::uwi::operator<=( const Dls& a, const Dls& b )

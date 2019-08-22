@@ -2,7 +2,7 @@
 
 #include "port.h"
 #include "ab_oil_pressure_test_container.h"
-#include "const_iterator_txt.h"
+#include "txt_const_iterator.h"
 #include <string>
 #include <iterator>
 #include <vector>
@@ -15,8 +15,10 @@ namespace datenzugriff
 {
 namespace ab_oil_pressure_test
 {
+namespace txt
+{
 
-class NHILL_DZG_ABOPT_PORT_FUNCTION Txt_parser : public Forward_list<Const_iterator_txt>
+class NHILL_DZG_ABOPT_PORT_FUNCTION Txt_parser : public Forward_list<Const_iterator>
 {
 public:
    using base = Forward_list<Txt_parser>;
@@ -35,6 +37,7 @@ private:
 #pragma warning(pop)
 };
 
+}
 }
 }
 }

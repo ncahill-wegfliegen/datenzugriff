@@ -39,7 +39,7 @@ public:
 namespace nhill
 {
 template<> NHILL_DZG_ABOPT_PORT_FUNCTION inline
-Compare comparex( const datenzugriff::Ab_oil_pressure_test& a, const datenzugriff::Ab_oil_pressure_test& b ) noexcept;
+Compare compare( const datenzugriff::Ab_oil_pressure_test& a, const datenzugriff::Ab_oil_pressure_test& b ) noexcept;
 
 namespace datenzugriff
 {

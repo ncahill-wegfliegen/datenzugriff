@@ -3,7 +3,7 @@
 #include "port.h"
 #include "record.h"
 #include "test_type.h"
-#include "../../gemeinsam/date_time/date.h"
+#include "../../../gemeinsam/date_time/date.h"
 
 namespace nhill
 {
@@ -12,6 +12,7 @@ namespace datenzugriff
 namespace ab_oil_pressure_test
 {
 
+/// <summary>Test data.</summary>
 class NHILL_DZG_ABOPT_PORT_CLASS Record04 : public Record
 {
 public:

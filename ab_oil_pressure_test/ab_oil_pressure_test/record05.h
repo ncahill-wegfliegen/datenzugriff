@@ -11,7 +11,7 @@ namespace datenzugriff
 namespace ab_oil_pressure_test
 {
 
-/// <summary>Remarks.</summary>
+/// <summary>Remark.</summary>
 class NHILL_DZG_ABOPT_PORT_CLASS Record05 : public Record
 {
 public:

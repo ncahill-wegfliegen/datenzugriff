@@ -48,15 +48,6 @@ CREATE TABLE `field_pool` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `field_pool`
---
-
-LOCK TABLES `field_pool` WRITE;
-/*!40000 ALTER TABLE `field_pool` DISABLE KEYS */;
-/*!40000 ALTER TABLE `field_pool` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `licensee`
 --
 
@@ -91,39 +82,6 @@ CREATE TABLE `licensee` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `licensee`
---
-
-LOCK TABLES `licensee` WRITE;
-/*!40000 ALTER TABLE `licensee` DISABLE KEYS */;
-/*!40000 ALTER TABLE `licensee` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `r_test_type`
---
-
-DROP TABLE IF EXISTS `r_test_type`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `r_test_type` (
-  `code` int(2) NOT NULL,
-  `description` varchar(64) NOT NULL,
-  PRIMARY KEY (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Test type codes.';
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `r_test_type`
---
-
-LOCK TABLES `r_test_type` WRITE;
-/*!40000 ALTER TABLE `r_test_type` DISABLE KEYS */;
-INSERT INTO `r_test_type` VALUES (1,'Top Hoel Undefined'),(2,'Top Hole Buildup'),(3,'Bottom Hole Static Gradient'),(4,'Bottom Hole Buildup'),(5,'Bottom Hole Undefined'),(6,'Bottom Hole Falloff'),(7,'Drill Stem Test'),(8,'Pressure Sentry'),(10,'Acoustic Well Sounder-Single Shot'),(11,'Acoustic Well Sounder-Buildup'),(12,'Acoustic Well Sounder-Falloff'),(99,'Rejected Misrun Test');
-/*!40000 ALTER TABLE `r_test_type` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `remark`
 --
 
@@ -154,15 +112,6 @@ CREATE TABLE `remark` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `remark`
---
-
-LOCK TABLES `remark` WRITE;
-/*!40000 ALTER TABLE `remark` DISABLE KEYS */;
-/*!40000 ALTER TABLE `remark` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `test_data`
 --
 
@@ -178,29 +127,30 @@ CREATE TABLE `test_data` (
   `meridian` int(1) NOT NULL,
   `event_sequence` char(1) NOT NULL,
   `consol_interval_num` int(2) NOT NULL,
-  `test_date` date NOT NULL,
-  `test_type` int(2) NOT NULL,
+  `test_index` int(2) NOT NULL,
+  `test_date` date DEFAULT NULL,
+  `test_type` int(2) DEFAULT NULL,
   `historical_well_status_date` date DEFAULT NULL,
   `historical_well_status_code` varchar(10) DEFAULT NULL,
-  `casing_pressure` decimal(6,0) DEFAULT NULL,
+  `casing_pressure` decimal(8,2) DEFAULT NULL,
   `mpp_depth` decimal(6,2) DEFAULT NULL,
   `gauge_run_depth` decimal(6,2) DEFAULT NULL,
   `run_depth_gradient` decimal(5,3) DEFAULT NULL,
-  `run_depth_pressure` decimal(6,2) DEFAULT NULL,
-  `reservoir_temperature` decimal(3,0) DEFAULT NULL,
+  `run_depth_pressure` decimal(8,2) DEFAULT NULL,
+  `reservoir_temperature` decimal(5,2) DEFAULT NULL,
   `initial_liquid_level` decimal(6,2) DEFAULT NULL,
   `final_liquid_level` decimal(6,2) DEFAULT NULL,
   `gas_gradient` decimal(5,3) DEFAULT NULL,
   `oil_gradient` decimal(5,3) DEFAULT NULL,
   `water_gradient` decimal(5,3) DEFAULT NULL,
-  `mpp_pressure` decimal(6,0) DEFAULT NULL,
-  `datum_depth_pressure` decimal(6,0) DEFAULT NULL,
+  `mpp_pressure` decimal(8,2) DEFAULT NULL,
+  `datum_depth_pressure` decimal(8,2) DEFAULT NULL,
   `extrapolated_pressure_indicator` char(1) DEFAULT NULL,
-  `extrapolated_mpp_pressure` decimal(6,0) DEFAULT NULL,
-  `exptrapolated_datum_depth_pressure` decimal(6,0) DEFAULT NULL,
-  `shut_in_period` decimal(5,0) DEFAULT NULL,
+  `extrapolated_mpp_pressure` decimal(8,2) DEFAULT NULL,
+  `extrapolated_datum_depth_pressure` decimal(8,2) DEFAULT NULL,
+  `shut_in_period` decimal(7,1) DEFAULT NULL,
   `footnote_number` int(2) DEFAULT NULL,
-  PRIMARY KEY (`location_exception`,`legal_subdivision`,`section`,`township`,`range`,`meridian`,`event_sequence`,`consol_interval_num`,`test_date`,`test_type`),
+  PRIMARY KEY (`location_exception`,`legal_subdivision`,`section`,`township`,`range`,`meridian`,`event_sequence`,`consol_interval_num`,`test_index`),
   KEY `fk_test_data_remark_remark_indicator_idx` (`location_exception`,`legal_subdivision`,`section`,`township`,`range`,`meridian`,`event_sequence`,`consol_interval_num`,`footnote_number`),
   KEY `fk_test_data_r_test_type_code_idx` (`test_type`),
   CONSTRAINT `fk_test_data_r_test_type_code` FOREIGN KEY (`test_type`) REFERENCES `r_test_type` (`code`),
@@ -215,15 +165,6 @@ CREATE TABLE `test_data` (
   CONSTRAINT `fk_test_data_well_id_township` FOREIGN KEY (`location_exception`, `legal_subdivision`, `section`, `township`) REFERENCES `well_id` (`location_exception`, `legal_subdivision`, `section`, `township`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Test Data';
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `test_data`
---
-
-LOCK TABLES `test_data` WRITE;
-/*!40000 ALTER TABLE `test_data` DISABLE KEYS */;
-/*!40000 ALTER TABLE `test_data` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `well_data`
@@ -264,15 +205,6 @@ CREATE TABLE `well_data` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `well_data`
---
-
-LOCK TABLES `well_data` WRITE;
-/*!40000 ALTER TABLE `well_data` DISABLE KEYS */;
-/*!40000 ALTER TABLE `well_data` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `well_id`
 --
 
@@ -295,13 +227,8 @@ CREATE TABLE `well_id` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `well_id`
+-- Dumping routines for database 'ab_oil_pressure_test'
 --
-
-LOCK TABLES `well_id` WRITE;
-/*!40000 ALTER TABLE `well_id` DISABLE KEYS */;
-/*!40000 ALTER TABLE `well_id` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -312,4 +239,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-08-17 13:56:29
+-- Dump completed on 2019-08-21 11:48:52

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="mysql.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="mysql.h" />
+    <ClInclude Include="port.h">
+      <Filter>module</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="module">
+      <UniqueIdentifier>{8598475c-18af-4012-82fd-8d3d13c04afa}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

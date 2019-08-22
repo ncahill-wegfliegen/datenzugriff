@@ -33,7 +33,7 @@ public:
    std::string pool_name;
 #pragma warning(pop)
 
-	void clear() override;
+   void clear() override;
 };
 
 }

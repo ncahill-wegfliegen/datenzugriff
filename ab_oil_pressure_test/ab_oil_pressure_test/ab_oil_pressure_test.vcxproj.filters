@@ -43,16 +43,19 @@
     <ClCompile Include="key.cpp">
       <Filter>test</Filter>
     </ClCompile>
-    <ClCompile Include="parse_txt.cpp">
-      <Filter>parse\txt</Filter>
-    </ClCompile>
     <ClCompile Include="test_type_ex.cpp">
       <Filter>test</Filter>
     </ClCompile>
     <ClCompile Include="txt_parser.cpp">
       <Filter>parse\txt</Filter>
     </ClCompile>
-    <ClCompile Include="const_iterator_txt.cpp">
+    <ClCompile Include="txt_write.cpp">
+      <Filter>write</Filter>
+    </ClCompile>
+    <ClCompile Include="txt_read.cpp">
+      <Filter>read</Filter>
+    </ClCompile>
+    <ClCompile Include="txt_const_iterator.cpp">
       <Filter>parse\txt</Filter>
     </ClCompile>
   </ItemGroup>
@@ -105,9 +108,6 @@
     <ClInclude Include="key.h">
       <Filter>test</Filter>
     </ClInclude>
-    <ClInclude Include="parse_txt.h">
-      <Filter>parse\txt</Filter>
-    </ClInclude>
     <ClInclude Include="test_type_ex.h">
       <Filter>test</Filter>
     </ClInclude>
@@ -117,15 +117,22 @@
     <ClInclude Include="txt_parser.h">
       <Filter>parse\txt</Filter>
     </ClInclude>
-    <ClInclude Include="const_iterator_txt.h">
-      <Filter>parse\txt</Filter>
-    </ClInclude>
     <ClInclude Include="const_iterator.h">
       <Filter>test</Filter>
     </ClInclude>
     <ClInclude Include="forward_list.h">
       <Filter>test</Filter>
     </ClInclude>
+    <ClInclude Include="txt_write.h">
+      <Filter>write</Filter>
+    </ClInclude>
+    <ClInclude Include="txt_read.h">
+      <Filter>read</Filter>
+    </ClInclude>
+    <ClInclude Include="txt_const_iterator.h">
+      <Filter>parse\txt</Filter>
+    </ClInclude>
+    <ClInclude Include="const_iterator_base.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="parse">
@@ -148,6 +155,12 @@
     </Filter>
     <Filter Include="parse\txt">
       <UniqueIdentifier>{3bdcb854-4cc9-4e5c-bf4c-b00b36a9267e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="read">
+      <UniqueIdentifier>{2d272e7b-3e3a-4a47-b54f-e54c9423abd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="write">
+      <UniqueIdentifier>{a896078a-650e-45c1-9b7f-bbae8db87d5a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

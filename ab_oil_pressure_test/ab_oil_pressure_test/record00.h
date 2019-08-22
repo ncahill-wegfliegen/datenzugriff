@@ -2,7 +2,7 @@
 
 #include "port.h"
 #include "record.h"
-#include "../../gemeinsam/date_time/date.h"
+#include "../../../gemeinsam/date_time/date.h"
 
 namespace nhill
 {
@@ -46,8 +46,12 @@ namespace datenzugriff
 namespace ab_oil_pressure_test
 {
 
+class Key;
+
 NHILL_DZG_ABOPT_PORT_FUNCTION bool operator==( const Record00& a, const Record00& b );
 NHILL_DZG_ABOPT_PORT_FUNCTION bool operator!=( const Record00& a, const Record00& b );
+
+NHILL_DZG_ABOPT_PORT_FUNCTION std::ostream& operator<<( std::ostream& out, const Record00& rec );
 
 }
 }

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "port.h"
-#include "../../gemeinsam/utility/compare.h"
+#include "../../../gemeinsam/utility/compare.h"
 #include <cstdint>
 #include <string>
 
@@ -119,7 +119,7 @@ namespace nhill
 {
 
 template<> NHILL_DZG_ABOPT_PORT_FUNCTION inline
-Compare comparex( const uwi::Dls& a, const uwi::Dls& b ) noexcept;
+Compare compare( const uwi::Dls& a, const uwi::Dls& b ) noexcept;
 
 namespace uwi
 {

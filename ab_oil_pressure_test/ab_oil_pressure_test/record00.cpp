@@ -1,5 +1,7 @@
 #include "record00.h"
+#include "key.h"
 #include <memory>
+#include <algorithm>
 
 using namespace std;
 
@@ -27,12 +29,23 @@ void nhill::datenzugriff::ab_oil_pressure_test::Record00::clear()
 
 bool nhill::datenzugriff::ab_oil_pressure_test::operator==( const Record00& a, const Record00& b )
 {
-	return dynamic_cast<const Record&>(a) == dynamic_cast<const Record&>(b)
-		&& a.well_name == b.well_name
-		&& a.on_production_date == b.on_production_date;
+   return dynamic_cast<const Record&>(a) == dynamic_cast<const Record&>(b)
+      && a.well_name == b.well_name
+      && a.on_production_date == b.on_production_date;
 }
 
 bool nhill::datenzugriff::ab_oil_pressure_test::operator!=( const Record00& a, const Record00& b )
 {
-	return !(a == b);
+   return !(a == b);
 }
+
+ostream& nhill::datenzugriff::ab_oil_pressure_test::operator<<( ostream& out, const Record00& rec )
+{
+   string well_name( 36, ' ' );
+   copy( rec.well_name.cbegin(), rec.well_name.cend(), well_name.begin() );
+
+   out << &well_name[0] << '\t' << to_string( rec.on_production_date, "%Y%m%d" ) << '\t' << endl;
+
+   return out;
+}
+
