@@ -9,7 +9,7 @@
 #include "../ab_oil_pressure_test/record04.h"
 #include "../ab_oil_pressure_test/record05.h"
 #include "../ab_oil_pressure_test/txt_read.h"
-#include "../ab_oil_pressure_test/txt_parser.h"
+#include "../ab_oil_pressure_test/txt_forward_list.h"
 #include "../ab_oil_pressure_test/ab_oil_pressure_test.h"
 #include <fstream>
 #include <windows.h>
@@ -100,7 +100,7 @@ public:
 
    TEST_METHOD( range_test )
    {
-      txt::Txt_parser readr{get_path( "ab_oil_pressure_test.txt" )};
+      txt::Forward_list readr{get_path( "ab_oil_pressure_test.txt" )};
       for( const auto& test : readr )
       {
          Key key{test.key};

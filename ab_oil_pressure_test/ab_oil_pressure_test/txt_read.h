@@ -3,12 +3,16 @@
 #pragma once
 
 #include "port.h"
-#include "parse.h"
 #include <string_view>
-#include <fstream>
+#include <istream>
 
 namespace nhill
 {
+namespace uwi
+{
+class Dls;
+}
+
 namespace datenzugriff
 {
 
@@ -35,7 +39,7 @@ NHILL_DZG_ABOPT_PORT_FUNCTION bool read( Record02& rec, std::string_view str );
 NHILL_DZG_ABOPT_PORT_FUNCTION bool read( Record03& rec, std::string_view str );
 NHILL_DZG_ABOPT_PORT_FUNCTION bool read( Record04& rec, std::string_view str );
 NHILL_DZG_ABOPT_PORT_FUNCTION bool read( Record05& rec, std::string_view str );
-NHILL_DZG_ABOPT_PORT_FUNCTION bool read( Ab_oil_pressure_test& test, std::ifstream& in );
+NHILL_DZG_ABOPT_PORT_FUNCTION bool read( Ab_oil_pressure_test& test, std::istream& in );
 
 }
 }

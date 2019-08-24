@@ -78,13 +78,13 @@ ostream& nhill::datenzugriff::ab_oil_pressure_test::txt::write( ostream& out, ch
 
 ostream& nhill::datenzugriff::ab_oil_pressure_test::txt::write( ostream& out, const Key& key )
 {
-   write( out, key.well_id.clocation_exception(), 2 );
-   write( out, key.well_id.legal_subdivision(), 2 );
-   write( out, key.well_id.section(), 2 );
-   write( out, key.well_id.township(), 3 );
-   write( out, key.well_id.range(), 2 );
-   write( out, key.well_id.meridian(), 1 );
-   write( out, key.well_id.cevent_sequence() );
+   write( out, key.uwi.clocation_exception(), 2 );
+   write( out, key.uwi.legal_subdivision(), 2 );
+   write( out, key.uwi.section(), 2 );
+   write( out, key.uwi.township(), 3 );
+   write( out, key.uwi.range(), 2 );
+   write( out, key.uwi.meridian(), 1 );
+   write( out, key.uwi.cevent_sequence() );
    write( out, key.consol_interval_num, 2 );
 
    return out;

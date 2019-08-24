@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="parse.cpp">
-      <Filter>parse</Filter>
-    </ClCompile>
     <ClCompile Include="record.cpp">
       <Filter>record</Filter>
     </ClCompile>
@@ -28,14 +25,8 @@
     <ClCompile Include="element_ex.cpp">
       <Filter>element</Filter>
     </ClCompile>
-    <ClCompile Include="dls.cpp">
-      <Filter>uwi</Filter>
-    </ClCompile>
     <ClCompile Include="record_type_ex.cpp">
       <Filter>record</Filter>
-    </ClCompile>
-    <ClCompile Include="parse_xml.cpp">
-      <Filter>parse\xml</Filter>
     </ClCompile>
     <ClCompile Include="ab_oil_pressure_test.cpp">
       <Filter>test</Filter>
@@ -46,23 +37,35 @@
     <ClCompile Include="test_type_ex.cpp">
       <Filter>test</Filter>
     </ClCompile>
-    <ClCompile Include="txt_parser.cpp">
-      <Filter>parse\txt</Filter>
-    </ClCompile>
-    <ClCompile Include="txt_write.cpp">
-      <Filter>write</Filter>
-    </ClCompile>
     <ClCompile Include="txt_read.cpp">
-      <Filter>read</Filter>
+      <Filter>txt</Filter>
     </ClCompile>
     <ClCompile Include="txt_const_iterator.cpp">
-      <Filter>parse\txt</Filter>
+      <Filter>txt</Filter>
+    </ClCompile>
+    <ClCompile Include="txt_forward_list.cpp">
+      <Filter>txt</Filter>
+    </ClCompile>
+    <ClCompile Include="txt_reader.cpp">
+      <Filter>txt</Filter>
+    </ClCompile>
+    <ClCompile Include="txt_write.cpp">
+      <Filter>txt</Filter>
+    </ClCompile>
+    <ClCompile Include="mysql_inserter.cpp">
+      <Filter>mysql</Filter>
+    </ClCompile>
+    <ClCompile Include="mysql_selector.cpp">
+      <Filter>mysql</Filter>
+    </ClCompile>
+    <ClCompile Include="mysql_session.cpp">
+      <Filter>mysql</Filter>
+    </ClCompile>
+    <ClCompile Include="mysql_write.cpp">
+      <Filter>mysql</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="parse.h">
-      <Filter>parse</Filter>
-    </ClInclude>
     <ClInclude Include="record.h">
       <Filter>record</Filter>
     </ClInclude>
@@ -90,17 +93,11 @@
     <ClInclude Include="element_ex.h">
       <Filter>element</Filter>
     </ClInclude>
-    <ClInclude Include="dls.h">
-      <Filter>uwi</Filter>
-    </ClInclude>
     <ClInclude Include="record_type.h">
       <Filter>record</Filter>
     </ClInclude>
     <ClInclude Include="record_type_ex.h">
       <Filter>record</Filter>
-    </ClInclude>
-    <ClInclude Include="parse_xml.h">
-      <Filter>parse\xml</Filter>
     </ClInclude>
     <ClInclude Include="ab_oil_pressure_test.h">
       <Filter>test</Filter>
@@ -114,53 +111,51 @@
     <ClInclude Include="test_type.h">
       <Filter>test</Filter>
     </ClInclude>
-    <ClInclude Include="txt_parser.h">
-      <Filter>parse\txt</Filter>
-    </ClInclude>
-    <ClInclude Include="const_iterator.h">
-      <Filter>test</Filter>
-    </ClInclude>
-    <ClInclude Include="forward_list.h">
-      <Filter>test</Filter>
-    </ClInclude>
-    <ClInclude Include="txt_write.h">
-      <Filter>write</Filter>
-    </ClInclude>
     <ClInclude Include="txt_read.h">
-      <Filter>read</Filter>
-    </ClInclude>
-    <ClInclude Include="txt_const_iterator.h">
-      <Filter>parse\txt</Filter>
+      <Filter>txt</Filter>
     </ClInclude>
     <ClInclude Include="const_iterator_base.h" />
+    <ClInclude Include="txt_const_iterator.h">
+      <Filter>txt</Filter>
+    </ClInclude>
+    <ClInclude Include="txt_forward_list.h">
+      <Filter>txt</Filter>
+    </ClInclude>
+    <ClInclude Include="txt_reader.h">
+      <Filter>txt</Filter>
+    </ClInclude>
+    <ClInclude Include="forward_list_base.h" />
+    <ClInclude Include="txt_write.h">
+      <Filter>txt</Filter>
+    </ClInclude>
+    <ClInclude Include="mysql_inserter.h">
+      <Filter>mysql</Filter>
+    </ClInclude>
+    <ClInclude Include="mysql_selector.h">
+      <Filter>mysql</Filter>
+    </ClInclude>
+    <ClInclude Include="mysql_session.h">
+      <Filter>mysql</Filter>
+    </ClInclude>
+    <ClInclude Include="mysql_write.h">
+      <Filter>mysql</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="parse">
-      <UniqueIdentifier>{4827715e-5ead-4e80-816d-98c6b51f1cf5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="record">
       <UniqueIdentifier>{a5cd7019-5c8c-4793-9261-160145c3d882}</UniqueIdentifier>
     </Filter>
     <Filter Include="element">
       <UniqueIdentifier>{0391049e-bb41-47ab-90ff-f28d0978885b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="uwi">
-      <UniqueIdentifier>{f35441a7-2c42-4242-a031-930ef3284fc5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="parse\xml">
-      <UniqueIdentifier>{0d146660-a2a8-40d5-a5f1-83a5f8148890}</UniqueIdentifier>
-    </Filter>
     <Filter Include="test">
       <UniqueIdentifier>{d487661f-bb2e-4342-9526-dd2d2af3bea2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="parse\txt">
-      <UniqueIdentifier>{3bdcb854-4cc9-4e5c-bf4c-b00b36a9267e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="read">
+    <Filter Include="txt">
       <UniqueIdentifier>{2d272e7b-3e3a-4a47-b54f-e54c9423abd3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="write">
-      <UniqueIdentifier>{a896078a-650e-45c1-9b7f-bbae8db87d5a}</UniqueIdentifier>
+    <Filter Include="mysql">
+      <UniqueIdentifier>{04e8312e-7cd8-4fac-85a4-edca34992797}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

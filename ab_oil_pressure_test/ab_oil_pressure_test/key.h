@@ -1,7 +1,7 @@
 #pragma once
 
 #include "port.h"
-#include "dls.h"
+#include "../../../gemeinsam/uwi/dls.h"
 #include <cstdint>
 
 namespace nhill
@@ -14,7 +14,7 @@ namespace ab_oil_pressure_test
 class NHILL_DZG_ABOPT_PORT_CLASS Key
 {
 public:
-	uwi::Dls well_id;
+	uwi::Dls uwi;
 	int consol_interval_num;
 
 	void clear();

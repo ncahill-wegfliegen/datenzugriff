@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.779
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ab_oil_pressure_test", "ab_oil_pressure_test\ab_oil_pressure_test\ab_oil_pressure_test.vcxproj", "{580F2E2B-0ABD-4B92-B002-A35A80173C30}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ab_oil_pressure_test_test", "ab_oil_pressure_test\ab_oil_pressure_test_test\ab_oil_pressure_test_test.vcxproj", "{9CF08E02-5A13-4BA0-9A3B-27715DABC09D}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ab_oil_pressure_test_mysql", "ab_oil_pressure_test\ab_oil_pressure_test_mysql\ab_oil_pressure_test_mysql.vcxproj", "{FD31D097-A6D6-410F-A7E0-7F82CE96DAE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,14 +31,6 @@ Global
 		{9CF08E02-5A13-4BA0-9A3B-27715DABC09D}.Release|Win32.Build.0 = Release|Win32
 		{9CF08E02-5A13-4BA0-9A3B-27715DABC09D}.Release|x64.ActiveCfg = Release|x64
 		{9CF08E02-5A13-4BA0-9A3B-27715DABC09D}.Release|x64.Build.0 = Release|x64
-		{FD31D097-A6D6-410F-A7E0-7F82CE96DAE6}.Debug|Win32.ActiveCfg = Debug|Win32
-		{FD31D097-A6D6-410F-A7E0-7F82CE96DAE6}.Debug|Win32.Build.0 = Debug|Win32
-		{FD31D097-A6D6-410F-A7E0-7F82CE96DAE6}.Debug|x64.ActiveCfg = Debug|x64
-		{FD31D097-A6D6-410F-A7E0-7F82CE96DAE6}.Debug|x64.Build.0 = Debug|x64
-		{FD31D097-A6D6-410F-A7E0-7F82CE96DAE6}.Release|Win32.ActiveCfg = Release|Win32
-		{FD31D097-A6D6-410F-A7E0-7F82CE96DAE6}.Release|Win32.Build.0 = Release|Win32
-		{FD31D097-A6D6-410F-A7E0-7F82CE96DAE6}.Release|x64.ActiveCfg = Release|x64
-		{FD31D097-A6D6-410F-A7E0-7F82CE96DAE6}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

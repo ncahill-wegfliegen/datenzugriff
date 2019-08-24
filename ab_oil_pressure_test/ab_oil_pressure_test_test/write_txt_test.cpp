@@ -8,7 +8,7 @@
 #include "../ab_oil_pressure_test/record04.h"
 #include "../ab_oil_pressure_test/record05.h"
 #include "../ab_oil_pressure_test/txt_read.h"
-#include "../ab_oil_pressure_test/txt_parser.h"
+#include "../ab_oil_pressure_test/txt_forward_list.h"
 #include "../ab_oil_pressure_test/txt_write.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -60,7 +60,7 @@ public:
       const char* const path_in { R"(..\..\..\ab_oil_pressure_test\ab_oil_pressure_test_test\data\11_tests.txt)"     };
       const char* const path_out{ R"(..\..\..\ab_oil_pressure_test\ab_oil_pressure_test_test\data\11_tests_out.txt)" };
 
-      txt::Txt_parser parser{ path_in };
+      txt::Forward_list parser{ path_in };
       ofstream out{ path_out };
 
       for( const auto& test : parser )

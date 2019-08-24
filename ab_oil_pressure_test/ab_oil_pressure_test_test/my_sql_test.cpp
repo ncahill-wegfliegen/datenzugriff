@@ -4,12 +4,14 @@
 #include "../ab_oil_pressure_test/key.h"
 #include "../ab_oil_pressure_test/record00.h"
 #include "../ab_oil_pressure_test/txt_read.h"
-#include "../ab_oil_pressure_test/txt_parser.h"
-#include "../ab_oil_pressure_test_mysql/mysql.h"
+#include "../ab_oil_pressure_test/txt_forward_list.h"
+#include "../ab_oil_pressure_test/mysql_inserter.h"
+#include "../ab_oil_pressure_test/mysql_write.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
 using namespace nhill::datenzugriff::ab_oil_pressure_test;
+using namespace nhill::datenzugriff::ab_oil_pressure_test::mysql;
 
 namespace ab_oil_pressure_test_test
 {
@@ -17,15 +19,26 @@ TEST_CLASS( My_sql_test )
 {
 public:
 
-   TEST_METHOD( test_types )
+   //TEST_METHOD( test_types )
+   //{
+   //   Inserter mysql{ "nhill-bemuehen", "piondecay" };
+   //   if( !mysql.is_session_open() )
+   //   {
+   //      Assert::Fail( L"Failed to open the session." );
+   //   }
+   //   mysql.close_session();
+   //   std::map<Test_type, std::string> test_types{ mysql.get_test_types() };
+   //}
+
+   TEST_METHOD( write_string )
    {
-      Mysql mysql{ "nhill-bemuehen", "piondecay" };
-      if( !mysql.is_session_open() )
-      {
-         Assert::Fail( L"Failed to open the session." );
-      }
-      mysql.close_session();
-      std::map<Test_type, std::string> test_types{ mysql.get_test_types() };
+      const char* const str{ "PENDANT D'OREILLE" };
+      const char* const expected{ R"(, 'PENDANT D\'OREILLE')" };
+
+      ostringstream oss;
+      write( oss, str );
+      string actual{ oss.str() };
+      Assert::AreEqual( expected, actual.c_str() );
    }
 
    TEST_METHOD( insert_rec00 )
@@ -39,13 +52,13 @@ public:
       success = txt::read( rec00, str );
       Assert::IsTrue( success, L"Failed to parse Record 00." );
 
-      Mysql mysql{ "nhill-bemuehen", "piondecay" };
-      if( !mysql.is_session_open() )
+      Inserter mysql{ "nhill-bemuehen", "piondecay" };
+      if( !mysql.is_open() )
       {
          Assert::Fail( L"Failed to open the session." );
       }
       success = mysql.insert( key, rec00 );
-      mysql.close_session();
+      mysql.close();
       Assert::IsTrue( success, L"Failed to insert." );
    }
 
@@ -65,7 +78,7 @@ public:
       success = txt::read( rec01, str1 );
       Assert::IsTrue( success, L"Failed to parse Record 01." );
 
-      Mysql mysql{ "nhill-bemuehen", "piondecay" };
+      Inserter mysql{ "nhill-bemuehen", "piondecay" };
       //success = mysql.insert( key, rec00 );
       //Assert::IsTrue( success, L"Failed to insert Record 00." );
 
@@ -85,7 +98,7 @@ public:
       success = txt::read( rec, str );
       Assert::IsTrue( success, L"Failed to parse Record." );
 
-      Mysql mysql{ "nhill-bemuehen", "piondecay" };
+      Inserter mysql{ "nhill-bemuehen", "piondecay" };
       success = mysql.insert( key, rec );
       Assert::IsTrue( success, L"Failed to insert Record." );
 
@@ -102,7 +115,7 @@ public:
       success = txt::read( rec, str );
       Assert::IsTrue( success, L"Failed to parse Record." );
 
-      Mysql mysql{ "nhill-bemuehen", "piondecay" };
+      Inserter mysql{ "nhill-bemuehen", "piondecay" };
       success = mysql.insert( key, rec );
       Assert::IsTrue( success, L"Failed to insert Record." );
 
@@ -119,7 +132,7 @@ public:
       success = txt::read( rec, str );
       Assert::IsTrue( success, L"Failed to parse Record." );
 
-      Mysql mysql{ "nhill-bemuehen", "piondecay" };
+      Inserter mysql{ "nhill-bemuehen", "piondecay" };
       success = mysql.insert( key, rec );
       Assert::IsTrue( success, L"Failed to insert Record." );
 
@@ -136,16 +149,16 @@ public:
       success = txt::read( rec, str );
       Assert::IsTrue( success, L"Failed to parse Record." );
 
-      Mysql mysql{ "nhill-bemuehen", "piondecay" };
+      Inserter mysql{ "nhill-bemuehen", "piondecay" };
       success = mysql.insert( key, rec, 0 );
       Assert::IsTrue( success, L"Failed to insert Record." );
    }
 
    TEST_METHOD( insert_test )
    {
-      txt::Txt_parser parser( R"(..\..\..\ab_oil_pressure_test\ab_oil_pressure_test_test\data\ab_oil_pressure_test.txt)" );
+      txt::Forward_list parser( R"(..\..\..\ab_oil_pressure_test\ab_oil_pressure_test_test\data\ab_oil_pressure_test.txt)" );
 
-      Mysql mysql{ "nhill-bemuehen", "piondecay" };
+      Inserter mysql{ "nhill-bemuehen", "piondecay" };
 
       bool success{ mysql.insert( *parser.cbegin() ) };
       Assert::IsTrue( success, L"Failed to insert the test." );
@@ -156,7 +169,7 @@ public:
       string path_in( R"(..\..\..\ab_oil_pressure_test\ab_oil_pressure_test_test\data\oil_pressure_test2019-09-08.log)" );
       string path_log( R"(c:\temp\log.txt)" );
 
-      Mysql mysql{ "nhill-bemuehen", "piondecay" };
+      Inserter mysql{ "nhill-bemuehen", "piondecay" };
 
       bool success{ mysql.insert_txt( path_in, path_log ) };
       Assert::IsTrue( success, L"Failed to insert the test." );
@@ -167,7 +180,7 @@ public:
       string path_in( R"(..\..\..\ab_oil_pressure_test\ab_oil_pressure_test_test\data\00_13-03-001-16W4_2_01.txt)" );
       string path_log( R"(c:\temp\log2.txt)" );
 
-      Mysql mysql{ "nhill-bemuehen", "piondecay" };
+      Inserter mysql{ "nhill-bemuehen", "piondecay" };
 
       bool success{ mysql.insert_txt( path_in, path_log ) };
       Assert::IsTrue( success, L"Failed to insert the test." );
@@ -178,7 +191,7 @@ public:
       string path_in( R"(..\..\..\ab_oil_pressure_test\ab_oil_pressure_test_test\data\04_06_15_001_16W4_0.txt)" );
       string path_log( R"(c:\temp\04_06_15_001_16W4_0.log)" );
 
-      Mysql mysql{ "nhill-bemuehen", "piondecay" };
+      Inserter mysql{ "nhill-bemuehen", "piondecay" };
 
       bool success{ mysql.insert_txt( path_in, path_log ) };
       Assert::IsTrue( success, L"Failed to insert the test." );
@@ -189,7 +202,7 @@ public:
       string path_in( R"(..\..\..\..\..\daten\petroleum\AB\oil_pressure_test\oil_pressure_test2019-09-08.txt)" );
       string path_log( R"(..\..\..\ab_oil_pressure_test\ab_oil_pressure_test_test\data\oil_pressure_test2019-09-08.log)" );
 
-      Mysql mysql{ "nhill-bemuehen", "piondecay" };
+      Inserter mysql{ "nhill-bemuehen", "piondecay" };
 
       bool success{ mysql.insert_txt( path_in, path_log ) };
       Assert::IsTrue( success, L"Failed to insert the test." );

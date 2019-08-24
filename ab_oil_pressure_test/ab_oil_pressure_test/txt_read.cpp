@@ -138,7 +138,7 @@ nhill::datenzugriff::ab_oil_pressure_test::Record_type read_record_type( string_
 {
    using namespace nhill::datenzugriff::ab_oil_pressure_test;
 
-   Record_type record_type;
+	Record_type record_type{ Record_type::well_id };
    string_view substr{ str.substr( 0,2 ) };
 
    if( substr == "00" )
@@ -216,13 +216,13 @@ bool nhill::datenzugriff::ab_oil_pressure_test::txt::read( Key& key, string_view
    vs = str::split( str, tab );
 
    // Well Identifier
-   key.well_id.le( vs[le].c_str() );
-   key.well_id.lsd( atoi( vs[lsd].c_str() ) );
-   key.well_id.sc( atoi( vs[sc].c_str() ) );
-   key.well_id.twp( atoi( vs[twp].c_str() ) );
-   key.well_id.rg( atoi( vs[rg].c_str() ) );
-   key.well_id.m( atoi( vs[m].c_str() ) );
-   key.well_id.es( atoi( vs[es].c_str() ) );
+   key.uwi.le( vs[le].c_str() );
+   key.uwi.lsd( atoi( vs[lsd].c_str() ) );
+   key.uwi.sc( atoi( vs[sc].c_str() ) );
+   key.uwi.twp( atoi( vs[twp].c_str() ) );
+   key.uwi.rg( atoi( vs[rg].c_str() ) );
+   key.uwi.m( atoi( vs[m].c_str() ) );
+   key.uwi.es( atoi( vs[es].c_str() ) );
 
    // Consolidation invterval number
    key.consol_interval_num = atoi( vs[cinum].c_str() );
@@ -390,11 +390,11 @@ bool nhill::datenzugriff::ab_oil_pressure_test::txt::read( Record05& rec, std::s
    return true;
 }
 
-bool nhill::datenzugriff::ab_oil_pressure_test::txt::read( Ab_oil_pressure_test& test, ifstream& in )
+bool nhill::datenzugriff::ab_oil_pressure_test::txt::read( Ab_oil_pressure_test& test, istream& in )
 {
    test.clear();
 
-   ifstream::pos_type pos{ in.tellg() };
+   istream::pos_type pos{ in.tellg() };
 
    string line;
    if( !getline( in, line ) )
@@ -469,4 +469,3 @@ bool nhill::datenzugriff::ab_oil_pressure_test::txt::read( Ab_oil_pressure_test&
 
    return true;
 }
-
