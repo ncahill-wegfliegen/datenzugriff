@@ -208,6 +208,17 @@ public:
       Assert::IsTrue( success, L"Failed to insert the test." );
    }
 
+	TEST_METHOD( insert_partial)
+	{
+		string path_in ( R"(..\..\..\ab_oil_pressure_test\ab_oil_pressure_test_test\data\ab_oil_pressure_test.txt)" );
+		string path_log( R"(..\..\..\ab_oil_pressure_test\ab_oil_pressure_test_test\data\ab_oil_pressure_test.log)" );
+
+		Inserter mysql{ "nhill-bemuehen", "piondecay" };
+
+		bool success{ mysql.insert_txt( path_in, path_log ) };
+		Assert::IsTrue( success, L"Failed to insert the test." );
+	}
+
 
 };
 }

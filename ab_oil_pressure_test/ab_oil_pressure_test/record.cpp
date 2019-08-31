@@ -44,7 +44,7 @@ auto nhill::datenzugriff::ab_oil_pressure_test::Record::make_unique( Record_type
    case Record_type::field_pool: return std::make_unique<Record02>();
    case Record_type::well_data : return std::make_unique<Record03>();
    case Record_type::test_data : return std::make_unique<Record04>();
-   case Record_type::remarks   : return std::make_unique<Record05>();
+   case Record_type::remark   : return std::make_unique<Record05>();
    default: return nullptr;
    }
 }

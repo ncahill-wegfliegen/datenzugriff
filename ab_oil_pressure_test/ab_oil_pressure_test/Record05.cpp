@@ -4,7 +4,7 @@
 using namespace std;
 
 nhill::datenzugriff::ab_oil_pressure_test::Record05::Record05()
-	: base{Record_type::remarks}
+	: base{Record_type::remark}
 	, remark_indicator{0}
 	, remark{}
 {

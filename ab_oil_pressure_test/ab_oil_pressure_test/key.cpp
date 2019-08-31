@@ -64,17 +64,17 @@ bool nhill::datenzugriff::ab_oil_pressure_test::operator>=( const Key& a, const 
 
 std::ostream& nhill::datenzugriff::ab_oil_pressure_test::operator<<( std::ostream& out, const Key& key )
 {
-	out << key.uwi.clocation_exception();
-	out << '\t' << setw( 2 ) << setfill( '0' ) << key.uwi.legal_subdivision();
-	out << '\t' << setw( 2 ) << setfill( '0' ) << key.uwi.section();
-	out << '\t' << setw( 3 ) << setfill( '0' ) << key.uwi.township();
-	out << '\t' << setw( 2 ) << setfill( '0' ) << key.uwi.range();
-	out << '\t' << key.uwi.meridian();
-	out << '\t' << setw( 2 ) << setfill( '0' ) << key.uwi.cevent_sequence();
-	out << '\t' << setw( 2 ) << setfill( '0' ) << key.consol_interval_num;
-	out << '\t';
+   out <<         key.uwi.le;
+   out << '\t' << key.uwi.lsd;
+   out << '\t' << key.uwi.sc;
+   out << '\t' << key.uwi.twp;
+   out << '\t' << key.uwi.rg;
+   out << '\t' << key.uwi.m;
+   out << '\t' << key.uwi.es;
+   out << '\t' << setw( 2 ) << setfill( '0' ) << key.consol_interval_num;
+   out << '\t';
 
-	return out;
+   return out;
 }
 
 

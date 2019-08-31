@@ -38,14 +38,3 @@ bool nhill::datenzugriff::ab_oil_pressure_test::operator!=( const Record00& a, c
 {
    return !(a == b);
 }
-
-ostream& nhill::datenzugriff::ab_oil_pressure_test::operator<<( ostream& out, const Record00& rec )
-{
-   string well_name( 36, ' ' );
-   copy( rec.well_name.cbegin(), rec.well_name.cend(), well_name.begin() );
-
-   out << &well_name[0] << '\t' << to_string( rec.on_production_date, "%Y%m%d" ) << '\t' << endl;
-
-   return out;
-}
-

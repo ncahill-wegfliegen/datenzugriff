@@ -35,10 +35,6 @@ NHILL_DZG_ABOPT_PORT_FUNCTION bool is_valid( char c );
 NHILL_DZG_ABOPT_PORT_FUNCTION bool is_valid( std::string_view str );
 NHILL_DZG_ABOPT_PORT_FUNCTION bool is_valid( Date date );
 
-//NHILL_DZG_ABOPT_PORT_FUNCTION std::string format( char c ); // Format the value for output.
-//NHILL_DZG_ABOPT_PORT_FUNCTION std::string format( std::string_view str ); // Format the value for output.
-//NHILL_DZG_ABOPT_PORT_FUNCTION std::string format( Date date ); // Format the value for output.
-
 NHILL_DZG_ABOPT_PORT_FUNCTION std::ostream& write_column( std::ostream& out, std::string_view column, char c ); // If the value is valid, then write the column name to the output.
 NHILL_DZG_ABOPT_PORT_FUNCTION std::ostream& write_column( std::ostream& out, std::string_view column, std::string_view str ); // If the value is valid, then write the column name to the output.
 NHILL_DZG_ABOPT_PORT_FUNCTION std::ostream& write_column( std::ostream& out, std::string_view column, const Date& date ); // If the value is valid, then write the column name to the output.

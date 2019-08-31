@@ -24,13 +24,13 @@ public:
 		txt::Reader reader{ path };
 
 		Key key;
-		key.uwi.le( "F1" );
-		key.uwi.lsd( 13 );
-		key.uwi.sc( 3 );
-		key.uwi.twp( 1 );
-		key.uwi.rg( 17 );
-		key.uwi.m( 4 );
-		key.uwi.es( 0 );
+		key.uwi.le = "F1";
+		key.uwi.lsd= 13;
+		key.uwi.sc = 3 ;
+		key.uwi.twp= 1 ;
+		key.uwi.rg = 17;
+		key.uwi.m  = 4 ;
+		key.uwi.es = 0 ;
 		key.consol_interval_num = 1;
 
 		Ab_oil_pressure_test test;
@@ -44,13 +44,13 @@ public:
 		txt::Reader reader{ path };
 
 		nhill::uwi::Dls uwi;
-		uwi.le( 0 );
-		uwi.lsd( 12 );
-		uwi.sc( 3 );
-		uwi.twp( 1 );
-		uwi.rg( 17 );
-		uwi.m( 4 );
-		uwi.es( 0 );
+		uwi.le  =0 ;
+		uwi.lsd= 12;
+		uwi.sc = 3 ;
+		uwi.twp= 1 ;
+		uwi.rg = 17;
+		uwi.m  = 4 ;
+		uwi.es = 0 ;
 
 		vector<Ab_oil_pressure_test> test;
 		bool actual{ reader.find( test, uwi ) };

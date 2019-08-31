@@ -45,8 +45,4 @@ bool nhill::datenzugriff::ab_oil_pressure_test::operator!=( const Record01& a, c
    return !(a == b);
 }
 
-std::ostream& nhill::datenzugriff::ab_oil_pressure_test::operator<<( std::ostream& out, const Record01& rec )
-{
-   return out;
-}
 

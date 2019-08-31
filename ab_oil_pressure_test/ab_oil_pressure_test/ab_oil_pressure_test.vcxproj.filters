@@ -64,6 +64,9 @@
     <ClCompile Include="mysql_write.cpp">
       <Filter>mysql</Filter>
     </ClCompile>
+    <ClCompile Include="mysql_read.cpp">
+      <Filter>mysql</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="record.h">
@@ -140,6 +143,10 @@
     <ClInclude Include="mysql_write.h">
       <Filter>mysql</Filter>
     </ClInclude>
+    <ClInclude Include="mysql_read.h">
+      <Filter>mysql</Filter>
+    </ClInclude>
+    <ClInclude Include="helper.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="record">

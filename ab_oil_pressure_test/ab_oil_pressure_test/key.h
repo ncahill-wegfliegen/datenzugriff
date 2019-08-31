@@ -15,7 +15,7 @@ class NHILL_DZG_ABOPT_PORT_CLASS Key
 {
 public:
 	uwi::Dls uwi;
-	int consol_interval_num;
+	unsigned consol_interval_num;
 
 	void clear();
 };

@@ -27,49 +27,6 @@ bool nhill::datenzugriff::ab_oil_pressure_test::mysql::is_valid( Date date )
    return date.year().value() != 1;
 }
 
-//std::string nhill::datenzugriff::ab_oil_pressure_test::mysql::format( char c )
-//{
-//   if( is_valid( c ) )
-//   {
-//      char s[2]{ c };
-//      return format( &s[0] );
-//   }
-//   else
-//   {
-//      return {};
-//   }
-//}
-//
-//std::string nhill::datenzugriff::ab_oil_pressure_test::mysql::format( string_view str )
-//{
-//   if( is_valid( str ) )
-//   {
-//      // Escape all single quotes in the string
-//      string s{ str::replace<char>( string{str}, R"(')", R"(\')" ) };
-//
-//      ostringstream oss;
-//      oss << single_quote << s << single_quote;
-//      return oss.str();
-//   }
-//   else
-//   {
-//      return {};
-//   }
-//}
-//
-//std::string nhill::datenzugriff::ab_oil_pressure_test::mysql::format( Date date )
-//{
-//   if( is_valid( date ) )
-//   {
-//      std::string str{ to_string( date, date_format ) };
-//      return format( str );
-//   }
-//   else
-//   {
-//      return {};
-//   }
-//}
-
 ostream& nhill::datenzugriff::ab_oil_pressure_test::mysql::write_column( ostream& out, string_view column, char c )
 {
    if( is_valid( c ) )
@@ -144,9 +101,6 @@ std::ostream& nhill::datenzugriff::ab_oil_pressure_test::mysql::write( std::ostr
 {
    if( is_valid( str ) )
    {
-      // Escape all single quotes in the string
-      //str::replace<char>( str, R"(')", R"(\')" );
-
       out << ", " << quoted( str, single_quote );
    }
    return out;
@@ -178,13 +132,13 @@ ostream& nhill::datenzugriff::ab_oil_pressure_test::mysql::write( ostream& out, 
 
 ostream& nhill::datenzugriff::ab_oil_pressure_test::mysql::write( ostream& out, const Key& key )
 {
-   write( out, key.uwi.cle() );
-   out << ", " << key.uwi.lsd();
-   out << ", " << key.uwi.sc();
-   out << ", " << key.uwi.twp();
-   out << ", " << key.uwi.rg();
-   out << ", " << key.uwi.m();
-  write(out, key.uwi.ces() );
+   out << quoted( key.uwi.le.value(), '\'' );
+   out << ", " << key.uwi.lsd;
+   out << ", " << key.uwi.sc;
+   out << ", " << key.uwi.twp;
+   out << ", " << key.uwi.rg;
+   out << ", " << key.uwi.m;
+   write(out, key.uwi.es.value() );
    out << ", " << key.consol_interval_num;
 
    return out;

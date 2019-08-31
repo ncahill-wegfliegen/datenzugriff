@@ -7,6 +7,7 @@
 #include "record04.h"
 #include "record05.h"
 #include "ab_oil_pressure_test.h"
+#include "helper.h"
 #include "../../../gemeinsam/utility/str.h"
 #include "../../../gemeinsam/enum/core/int.h"
 #include <string>
@@ -14,121 +15,6 @@
 
 using namespace std;
 
-namespace key
-{
-enum Index
-{
-   type,			// record type
-   le,			// location exception
-   lsd,			// legal subdivision
-   sc,			// section
-   twp,			// township
-   rg,			// range
-   m,				// meridian
-   es,			// event sequence
-   cinum,		// consolidation interval number
-
-   cnt,			// number of indices
-};
-}
-
-namespace rec00
-{
-enum Index
-{
-   name,			// well name
-   date,			// on production date
-
-   cnt,			// number of indices
-};
-}
-
-namespace rec01
-{
-enum Index
-{
-   lcd,   // licensee code
-   lab,   // licensee abbreviation
-   scd,   // survey coordinating operator code      
-   sab,   // survey coordinating operator abbreviation
-   wdt,   // well status date
-   wcd,   // well status code
-
-   cnt,   // number of indices
-};
-}
-
-namespace rec02
-{
-enum Index
-{
-   fn, // field name
-   pn, // pool name
-
-   cnt,  // number of indices
-};
-}
-
-namespace rec03
-{
-enum Index
-{
-   fcd, // field code
-   pcd, // pool code
-   top, // consolidation interval top
-   btm, // consolidation interval bottom
-   kb,  // kb elevation
-   pdt, // pool datum depth
-   ge,  // ground elevation
-   wdt, // well datum depth
-   ip,  // initial pool pressure
-   rg,  // reservoir gradient
-
-   cnt, // number of indices
-};
-}
-
-namespace rec04
-{
-enum Index
-{
-   td,	// test date
-   tt,	// test type
-   hwsd, // historical well status date
-   hwsc, // historical well status code
-   cp,	// casing pressure
-   mppd,	// midpoint perforation depth
-   grd,	// gauge run depth
-   rdg,	// run depth gradient
-   rdp,	// run depth pressure
-   rt,	// reservoir temperature
-   ill,	// initial liquid level
-   fll,	// final liquid level
-   gg,	// gas gradient
-   og,	// oil gradient
-   wg,	// water gradient
-   mppp,	// midpoint perforation pressure
-   ddp,	// datum depth pressure
-   epi,	// extrpolated pressure indicator
-   emppp,// extrapolated midpoint perforation pressure
-   eddp,	// extrapolated datum depth pressure
-   sip,	// shut in period
-   fn,	// footnote number
-
-   cnt,
-};
-}
-
-namespace rec05
-{
-enum Index
-{
-   ri, // remark indicator
-   r,  // remark
-
-   cnt,
-};
-}
 
 namespace
 {
@@ -138,7 +24,7 @@ nhill::datenzugriff::ab_oil_pressure_test::Record_type read_record_type( string_
 {
    using namespace nhill::datenzugriff::ab_oil_pressure_test;
 
-	Record_type record_type{ Record_type::well_id };
+   Record_type record_type{ Record_type::well_id };
    string_view substr{ str.substr( 0,2 ) };
 
    if( substr == "00" )
@@ -163,7 +49,7 @@ nhill::datenzugriff::ab_oil_pressure_test::Record_type read_record_type( string_
    }
    else if( substr == "05" )
    {
-      record_type = Record_type::remarks;
+      record_type = Record_type::remark;
    }
 
    return record_type;
@@ -216,13 +102,13 @@ bool nhill::datenzugriff::ab_oil_pressure_test::txt::read( Key& key, string_view
    vs = str::split( str, tab );
 
    // Well Identifier
-   key.uwi.le( vs[le].c_str() );
-   key.uwi.lsd( atoi( vs[lsd].c_str() ) );
-   key.uwi.sc( atoi( vs[sc].c_str() ) );
-   key.uwi.twp( atoi( vs[twp].c_str() ) );
-   key.uwi.rg( atoi( vs[rg].c_str() ) );
-   key.uwi.m( atoi( vs[m].c_str() ) );
-   key.uwi.es( atoi( vs[es].c_str() ) );
+   key.uwi.le = vs[le].c_str();
+   key.uwi.lsd = atoi( vs[lsd].c_str() );
+   key.uwi.sc = atoi( vs[sc].c_str() );
+   key.uwi.twp = atoi( vs[twp].c_str() );
+   key.uwi.rg = atoi( vs[rg].c_str() );
+   key.uwi.m = atoi( vs[m].c_str() );
+   key.uwi.es = vs[es][0];
 
    // Consolidation invterval number
    key.consol_interval_num = atoi( vs[cinum].c_str() );
@@ -454,7 +340,7 @@ bool nhill::datenzugriff::ab_oil_pressure_test::txt::read( Ab_oil_pressure_test&
          break;
       }
 
-      case Record_type::remarks:
+      case Record_type::remark:
       {
          Record05 r05;
          read( r05, line );

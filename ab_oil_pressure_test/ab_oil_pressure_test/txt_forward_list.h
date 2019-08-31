@@ -4,7 +4,6 @@
 #include "forward_list_base.h"
 #include "txt_const_iterator.h"
 #include <string>
-#include <iterator>
 #include <vector>
 #include <filesystem>
 #include <fstream>

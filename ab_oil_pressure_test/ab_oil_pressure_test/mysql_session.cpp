@@ -116,3 +116,25 @@ bool nhill::datenzugriff::ab_oil_pressure_test::mysql::Session::execute_sql( con
    }
 }
 
+mysqlx::SqlResult nhill::datenzugriff::ab_oil_pressure_test::mysql::Session::execute_select( std::string_view table, std::string_view columns, std::string_view where )
+{
+
+	ostringstream oss;
+	oss << "SELECT ";
+	oss << columns;
+	oss << " FROM ab_oil_pressure_test.";
+	oss << table;
+	oss << " WHERE ";
+	oss << where;
+	oss << ';';
+
+	try
+	{
+		return session_->sql( oss.str() ).execute();
+	}
+	catch( exception e )
+	{
+		throw e;
+	}
+}
+

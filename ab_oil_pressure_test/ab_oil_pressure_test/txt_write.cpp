@@ -38,11 +38,7 @@ ostream& nhill::datenzugriff::ab_oil_pressure_test::txt::write( ostream& out, co
 
 ostream& nhill::datenzugriff::ab_oil_pressure_test::txt::write( ostream& out, string_view str, unsigned width )
 {
-   string formatted( width, space );
-
-   copy( str.cbegin(), str.cend(), formatted.begin() );
-
-   return out << formatted << tab;
+   return out << setfill( space ) << setw( width ) << left << str << tab;
 }
 
 ostream& nhill::datenzugriff::ab_oil_pressure_test::txt::write( ostream& out, double value, unsigned width, unsigned precision, bool is_signed )
@@ -53,7 +49,7 @@ ostream& nhill::datenzugriff::ab_oil_pressure_test::txt::write( ostream& out, do
       out << (value < 0 ? '-' : space);
    }
 
-   return out << fixed << setw( width ) << setprecision( precision ) << setfill( zero ) << value << tab;
+   return out << fixed << setw( width ) << setprecision( precision ) << setfill( zero ) << std::abs(value) << tab;
 }
 
 ostream& nhill::datenzugriff::ab_oil_pressure_test::txt::write( ostream& out, int value, unsigned width )
@@ -78,13 +74,13 @@ ostream& nhill::datenzugriff::ab_oil_pressure_test::txt::write( ostream& out, ch
 
 ostream& nhill::datenzugriff::ab_oil_pressure_test::txt::write( ostream& out, const Key& key )
 {
-   write( out, key.uwi.clocation_exception(), 2 );
-   write( out, key.uwi.legal_subdivision(), 2 );
-   write( out, key.uwi.section(), 2 );
-   write( out, key.uwi.township(), 3 );
-   write( out, key.uwi.range(), 2 );
-   write( out, key.uwi.meridian(), 1 );
-   write( out, key.uwi.cevent_sequence() );
+   write( out, key.uwi.le.value(), 2 );
+   write( out, key.uwi.lsd, 2 );
+   write( out, key.uwi.sc, 2 );
+   write( out, key.uwi.twp, 3 );
+   write( out, key.uwi.rg, 2 );
+   write( out, key.uwi.m, 1 );
+   write( out, key.uwi.es.value() );
    write( out, key.consol_interval_num, 2 );
 
    return out;
