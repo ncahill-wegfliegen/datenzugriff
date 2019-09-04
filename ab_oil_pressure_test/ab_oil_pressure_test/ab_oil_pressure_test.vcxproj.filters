@@ -67,6 +67,30 @@
     <ClCompile Include="mysql_read.cpp">
       <Filter>mysql</Filter>
     </ClCompile>
+    <ClCompile Include="facade_interface.cpp">
+      <Filter>facade</Filter>
+    </ClCompile>
+    <ClCompile Include="configuration.cpp">
+      <Filter>configuration</Filter>
+    </ClCompile>
+    <ClCompile Include="txt_configuration.cpp">
+      <Filter>configuration</Filter>
+    </ClCompile>
+    <ClCompile Include="xml_txt_configuration.cpp">
+      <Filter>xml</Filter>
+    </ClCompile>
+    <ClCompile Include="mysql_configuration.cpp">
+      <Filter>configuration</Filter>
+    </ClCompile>
+    <ClCompile Include="xml_mysql_configuration.cpp">
+      <Filter>xml</Filter>
+    </ClCompile>
+    <ClCompile Include="xml_configuration.cpp">
+      <Filter>xml</Filter>
+    </ClCompile>
+    <ClCompile Include="txt_facade.cpp">
+      <Filter>facade</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="record.h">
@@ -147,6 +171,33 @@
       <Filter>mysql</Filter>
     </ClInclude>
     <ClInclude Include="helper.h" />
+    <ClInclude Include="facade_interface.h">
+      <Filter>facade</Filter>
+    </ClInclude>
+    <ClInclude Include="configuration.h">
+      <Filter>configuration</Filter>
+    </ClInclude>
+    <ClInclude Include="txt_configuration.h">
+      <Filter>configuration</Filter>
+    </ClInclude>
+    <ClInclude Include="xml_txt_configuration.h">
+      <Filter>xml</Filter>
+    </ClInclude>
+    <ClInclude Include="mysql_configuration.h">
+      <Filter>configuration</Filter>
+    </ClInclude>
+    <ClInclude Include="xml_mysql_configuration.h">
+      <Filter>xml</Filter>
+    </ClInclude>
+    <ClInclude Include="xml_configuration.h">
+      <Filter>xml</Filter>
+    </ClInclude>
+    <ClInclude Include="txt_facade.h">
+      <Filter>facade</Filter>
+    </ClInclude>
+    <ClInclude Include="test_container.h">
+      <Filter>test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="record">
@@ -163,6 +214,15 @@
     </Filter>
     <Filter Include="mysql">
       <UniqueIdentifier>{04e8312e-7cd8-4fac-85a4-edca34992797}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="facade">
+      <UniqueIdentifier>{35a28457-08f3-4fa5-9971-bfdba6550da4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="configuration">
+      <UniqueIdentifier>{a7fecc52-9fce-4e02-ab2d-3ab8a1060c99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xml">
+      <UniqueIdentifier>{4398de78-0568-4a32-a67e-7ee5ac4459b7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

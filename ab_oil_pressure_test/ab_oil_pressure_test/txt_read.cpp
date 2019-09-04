@@ -60,9 +60,9 @@ nhill::Date read_date( const string& str )
    if( str.size() == 8 && str != "00000000" )
    {
       return{
-         atoi( str.substr( 0, 4 ).c_str() ),
-         atoi( str.substr( 4, 2 ).c_str() ),
-         atoi( str.substr( 6, 2 ).c_str() )
+         stoi( str.substr( 0, 4 ) ),
+         stoi( str.substr( 4, 2 ) ),
+         stoi( str.substr( 6, 2 ) )
       };
    }
    else
@@ -102,16 +102,16 @@ bool nhill::datenzugriff::ab_oil_pressure_test::txt::read( Key& key, string_view
    vs = str::split( str, tab );
 
    // Well Identifier
-   key.uwi.le = vs[le].c_str();
-   key.uwi.lsd = atoi( vs[lsd].c_str() );
-   key.uwi.sc = atoi( vs[sc].c_str() );
-   key.uwi.twp = atoi( vs[twp].c_str() );
-   key.uwi.rg = atoi( vs[rg].c_str() );
-   key.uwi.m = atoi( vs[m].c_str() );
-   key.uwi.es = vs[es][0];
+   key.uwi.le  = vs[le].c_str();
+   key.uwi.lsd = stoi( vs[lsd] );
+   key.uwi.sc  = stoi( vs[sc ] );
+   key.uwi.twp = stoi( vs[twp] );
+   key.uwi.rg  = stoi( vs[rg ] );
+   key.uwi.m   = stoi( vs[m  ] );
+   key.uwi.es  = vs[es][0];
 
    // Consolidation invterval number
-   key.consol_interval_num = atoi( vs[cinum].c_str() );
+   key.consol_interval_num = stoi( vs[cinum] );
 
    return true;
 }
@@ -202,14 +202,14 @@ bool nhill::datenzugriff::ab_oil_pressure_test::txt::read( Record03& rec, std::s
    rec.field_code = str::trim_end( vs[fcd] );
    rec.pool_code = str::trim_end( vs[pcd] );
 
-   rec.consol_interval_top = atof( vs[top].c_str() );
-   rec.consol_interval_bottom = atof( vs[btm].c_str() );
-   rec.kb_elevation = atof( vs[kb].c_str() );
-   rec.pool_datum_depth = atof( vs[pdt].c_str() );
-   rec.ground_elevation = atof( vs[ge].c_str() );
-   rec.well_datum_depth = atof( vs[wdt].c_str() );
-   rec.initial_pool_pressure = atof( vs[ip].c_str() );
-   rec.reservoir_gradient = atof( vs[rg].c_str() );
+   rec.consol_interval_top = stof( vs[top] );
+   rec.consol_interval_bottom = stof( vs[btm] );
+   rec.kb_elevation = stof( vs[kb] );
+   rec.pool_datum_depth = stof( vs[pdt] );
+   rec.ground_elevation = stof( vs[ge] );
+   rec.well_datum_depth = stof( vs[wdt] );
+   rec.initial_pool_pressure = stof( vs[ip] );
+   rec.reservoir_gradient = stof( vs[rg] );
 
    return true;
 }
@@ -230,27 +230,27 @@ bool nhill::datenzugriff::ab_oil_pressure_test::txt::read( Record04& rec, std::s
 
    // Push the contents to the parameter
    rec.test_date = read_date( vs[td] );
-   rec.test_type = nhill::to_enum<Test_type>( atoi( vs[tt].c_str() ) );
+   rec.test_type = nhill::to_enum<Test_type>( stoi( vs[tt] ) );
    rec.historical_well_status_date = read_date( vs[hwsd] );
    rec.historical_well_status_code = vs[hwsc];
-   rec.casing_pressure = atof( vs[cp].c_str() );
-   rec.mpp_depth = atof( vs[mppd].c_str() );
-   rec.gauge_run_depth = atof( vs[grd].c_str() );
-   rec.run_depth_gradient = atof( vs[rdg].c_str() );
-   rec.run_depth_pressure = atof( vs[rdp].c_str() );
-   rec.reservoir_temperature = atof( vs[rt].c_str() );
-   rec.initial_liquid_level = atof( vs[ill].c_str() );
-   rec.final_liquid_level = atof( vs[fll].c_str() );
-   rec.gas_gradient = atof( vs[gg].c_str() );
-   rec.oil_gradient = atof( vs[og].c_str() );
-   rec.water_gradient = atof( vs[wg].c_str() );
-   rec.mpp_pressure = atof( vs[mppp].c_str() );
-   rec.datum_depth_pressure = atof( vs[ddp].c_str() );
+   rec.casing_pressure = stof( vs[cp] );
+   rec.mpp_depth = stof( vs[mppd] );
+   rec.gauge_run_depth = stof( vs[grd] );
+   rec.run_depth_gradient = stof( vs[rdg] );
+   rec.run_depth_pressure = stof( vs[rdp] );
+   rec.reservoir_temperature = stof( vs[rt] );
+   rec.initial_liquid_level = stof( vs[ill] );
+   rec.final_liquid_level = stof( vs[fll] );
+   rec.gas_gradient = stof( vs[gg] );
+   rec.oil_gradient = stof( vs[og] );
+   rec.water_gradient = stof( vs[wg] );
+   rec.mpp_pressure = stof( vs[mppp] );
+   rec.datum_depth_pressure = stof( vs[ddp] );
    rec.extrapolated_pressure_indicator = (vs[epi] == " " ? '\0' : vs[epi][0]);
-   rec.extrapolated_mpp_pressure = atof( vs[emppp].c_str() );
-   rec.extrapolated_datum_depth_pressure = atof( vs[eddp].c_str() );
-   rec.shut_in_period = atof( vs[sip].c_str() );
-   rec.footnote_number = atoi( vs[fn].c_str() );
+   rec.extrapolated_mpp_pressure = stof( vs[emppp] );
+   rec.extrapolated_datum_depth_pressure = stof( vs[eddp] );
+   rec.shut_in_period = stof( vs[sip] );
+   rec.footnote_number = stoi( vs[fn] );
 
    return true;
 }
@@ -270,7 +270,7 @@ bool nhill::datenzugriff::ab_oil_pressure_test::txt::read( Record05& rec, std::s
    }
 
    // Push the contents to the parameter
-   rec.remark_indicator = atoi( vs[ri].c_str() );
+   rec.remark_indicator = stoi( vs[ri] );
    rec.remark = str::trim_end( vs[r] );
 
    return true;

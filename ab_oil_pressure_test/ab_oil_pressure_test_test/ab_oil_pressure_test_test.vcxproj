@@ -81,19 +81,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <ExecutablePath>..\..\gemeinsam\bin\$(Platform)\$(Configuration);$(ExecutablePath)</ExecutablePath>
+    <ExecutablePath>$(SolutionDir)..\..\other\TiXml2\bin\$(Platform)\$(Configuration);$(SolutionDir)..\gemeinsam\bin\$(Platform)\$(Configuration);$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <ExecutablePath>..\..\gemeinsam\bin\$(Platform)\$(Configuration);$(ExecutablePath)</ExecutablePath>
+    <ExecutablePath>$(SolutionDir)..\..\other\TiXml2\bin\$(Platform)\$(Configuration);$(SolutionDir)..\gemeinsam\bin\$(Platform)\$(Configuration);$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <ExecutablePath>..\..\gemeinsam\bin\$(Platform)\$(Configuration);$(ExecutablePath)</ExecutablePath>
+    <ExecutablePath>$(SolutionDir)..\..\other\TiXml2\bin\$(Platform)\$(Configuration);$(SolutionDir)..\gemeinsam\bin\$(Platform)\$(Configuration);$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <ExecutablePath>..\..\gemeinsam\bin\$(Platform)\$(Configuration);$(ExecutablePath)</ExecutablePath>
+    <ExecutablePath>$(SolutionDir)..\..\other\TiXml2\bin\$(Platform)\$(Configuration);$(SolutionDir)..\gemeinsam\bin\$(Platform)\$(Configuration);$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -109,17 +109,16 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>..\..\..\gemeinsam\bin\$(Platform)\$(Configuration);$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>date_time.lib;enum.lib;uwi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\gemeinsam\bin\$(Platform)\$(Configuration);$(SolutionDir)..\..\other\TiXml2\bin\$(Platform)\$(Configuration);$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>date_time.lib;enum.lib;uwi.lib;log.lib;xml.lib;crypt.lib;TiXml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)..\gemeinsam\bin\$(Platform)\$(Configuration)\date_time.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
-xcopy "$(SolutionDir)..\gemeinsam\bin\$(Platform)\$(Configuration)\enum.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
+      <Command>xcopy "$(SolutionDir)..\gemeinsam\bin\$(Platform)\$(Configuration)\*.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
+xcopy "$(SolutionDir)..\..\other\TiXml2\bin\$(Platform)\$(Configuration)\*.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
 
 xcopy "C:\Program Files\MySQL\MySQL Connector C++ 8.0\lib64\mysqlcppconn8-2-vs14.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
 xcopy "C:\Program Files\MySQL\MySQL Connector C++ 8.0\lib64\libeay32.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
-xcopy "C:\Program Files\MySQL\MySQL Connector C++ 8.0\lib64\ssleay32.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
-</Command>
+xcopy "C:\Program Files\MySQL\MySQL Connector C++ 8.0\lib64\ssleay32.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -135,19 +134,16 @@ xcopy "C:\Program Files\MySQL\MySQL Connector C++ 8.0\lib64\ssleay32.dll" "$(Sol
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>..\..\..\gemeinsam\bin\$(Platform)\$(Configuration);$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>date_time.lib;enum.lib;uwi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\gemeinsam\bin\$(Platform)\$(Configuration);$(SolutionDir)..\..\other\TiXml2\bin\$(Platform)\$(Configuration);$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>date_time.lib;enum.lib;uwi.lib;log.lib;xml.lib;crypt.lib;TiXml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)..\gemeinsam\bin\$(Platform)\$(Configuration)\date_time.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
-xcopy "$(SolutionDir)..\gemeinsam\bin\$(Platform)\$(Configuration)\enum.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
+      <Command>xcopy "$(SolutionDir)..\gemeinsam\bin\$(Platform)\$(Configuration)\*.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
+xcopy "$(SolutionDir)..\..\other\TiXml2\bin\$(Platform)\$(Configuration)\*.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
 
-xcopy "C:\Program Files (x86)\MySQL\Connector C++ 8.0\lib\libeay32.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
-xcopy "C:\Program Files (x86)\MySQL\Connector C++ 8.0\lib\ssleay32.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
-
-xcopy "C:\Program Files (x86)\MySQL\Connector C++ 8.0\lib\debug\mysqlcppconn8-2-vs14.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
-xcopy "C:\Program Files (x86)\MySQL\Connector C++ 8.0\lib\debug\mysqlcppconn8-2-vs14.pdb" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
-</Command>
+xcopy "C:\Program Files\MySQL\MySQL Connector C++ 8.0\lib64\mysqlcppconn8-2-vs14.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
+xcopy "C:\Program Files\MySQL\MySQL Connector C++ 8.0\lib64\libeay32.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
+xcopy "C:\Program Files\MySQL\MySQL Connector C++ 8.0\lib64\ssleay32.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -167,16 +163,16 @@ xcopy "C:\Program Files (x86)\MySQL\Connector C++ 8.0\lib\debug\mysqlcppconn8-2-
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>..\..\..\gemeinsam\bin\$(Platform)\$(Configuration);$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>date_time.lib;enum.lib;uwi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\gemeinsam\bin\$(Platform)\$(Configuration);$(SolutionDir)..\..\other\TiXml2\bin\$(Platform)\$(Configuration);$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>date_time.lib;enum.lib;uwi.lib;log.lib;xml.lib;crypt.lib;TiXml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)..\gemeinsam\bin\$(Platform)\$(Configuration)\date_time.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
-xcopy "$(SolutionDir)..\gemeinsam\bin\$(Platform)\$(Configuration)\enum.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
+      <Command>xcopy "$(SolutionDir)..\gemeinsam\bin\$(Platform)\$(Configuration)\*.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
+xcopy "$(SolutionDir)..\..\other\TiXml2\bin\$(Platform)\$(Configuration)\*.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
 
-xcopy "C:\Program Files (x86)\MySQL\Connector C++ 8.0\lib\mysqlcppconn8-2-vs14.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
-xcopy "C:\Program Files (x86)\MySQL\Connector C++ 8.0\lib\libeay32.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
-xcopy "C:\Program Files (x86)\MySQL\Connector C++ 8.0\lib\ssleay32.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s</Command>
+xcopy "C:\Program Files\MySQL\MySQL Connector C++ 8.0\lib64\mysqlcppconn8-2-vs14.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
+xcopy "C:\Program Files\MySQL\MySQL Connector C++ 8.0\lib64\libeay32.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
+xcopy "C:\Program Files\MySQL\MySQL Connector C++ 8.0\lib64\ssleay32.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -196,18 +192,16 @@ xcopy "C:\Program Files (x86)\MySQL\Connector C++ 8.0\lib\ssleay32.dll" "$(Solut
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>..\..\..\gemeinsam\bin\$(Platform)\$(Configuration);$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>date_time.lib;enum.lib;uwi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\gemeinsam\bin\$(Platform)\$(Configuration);$(SolutionDir)..\..\other\TiXml2\bin\$(Platform)\$(Configuration);$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>date_time.lib;enum.lib;uwi.lib;log.lib;xml.lib;crypt.lib;TiXml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)..\gemeinsam\bin\$(Platform)\$(Configuration)\date_time.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
-xcopy "$(SolutionDir)..\gemeinsam\bin\$(Platform)\$(Configuration)\enum.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
-xcopy "$(SolutionDir)..\gemeinsam\bin\$(Platform)\$(Configuration)\uwi.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
+      <Command>xcopy "$(SolutionDir)..\gemeinsam\bin\$(Platform)\$(Configuration)\*.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
+xcopy "$(SolutionDir)..\..\other\TiXml2\bin\$(Platform)\$(Configuration)\*.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
 
 xcopy "C:\Program Files\MySQL\MySQL Connector C++ 8.0\lib64\mysqlcppconn8-2-vs14.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
 xcopy "C:\Program Files\MySQL\MySQL Connector C++ 8.0\lib64\libeay32.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
-xcopy "C:\Program Files\MySQL\MySQL Connector C++ 8.0\lib64\ssleay32.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s
-</Command>
+xcopy "C:\Program Files\MySQL\MySQL Connector C++ 8.0\lib64\ssleay32.dll" "$(SolutionDir)bin\$(Platform)\$(Configuration)\*" /y /d /s</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -225,6 +219,7 @@ xcopy "C:\Program Files\MySQL\MySQL Connector C++ 8.0\lib64\ssleay32.dll" "$(Sol
     </ClCompile>
     <ClCompile Include="txt_reader_test.cpp" />
     <ClCompile Include="write_txt_test.cpp" />
+    <ClCompile Include="xml_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="data.h" />

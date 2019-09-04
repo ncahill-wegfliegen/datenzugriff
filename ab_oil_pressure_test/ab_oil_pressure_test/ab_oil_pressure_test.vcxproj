@@ -20,11 +20,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ab_oil_pressure_test.cpp" />
+    <ClCompile Include="configuration.cpp" />
+    <ClCompile Include="facade_interface.cpp" />
+    <ClCompile Include="mysql_configuration.cpp" />
     <ClCompile Include="mysql_inserter.cpp" />
     <ClCompile Include="mysql_read.cpp" />
     <ClCompile Include="mysql_selector.cpp" />
     <ClCompile Include="mysql_session.cpp" />
     <ClCompile Include="mysql_write.cpp" />
+    <ClCompile Include="txt_configuration.cpp" />
     <ClCompile Include="txt_const_iterator.cpp" />
     <ClCompile Include="element_ex.cpp" />
     <ClCompile Include="record.cpp" />
@@ -37,21 +41,30 @@
     <ClCompile Include="record_type_ex.cpp" />
     <ClCompile Include="key.cpp" />
     <ClCompile Include="test_type_ex.cpp" />
+    <ClCompile Include="txt_facade.cpp" />
     <ClCompile Include="txt_forward_list.cpp" />
     <ClCompile Include="txt_read.cpp" />
     <ClCompile Include="txt_reader.cpp" />
     <ClCompile Include="txt_write.cpp" />
+    <ClCompile Include="xml_configuration.cpp" />
+    <ClCompile Include="xml_mysql_configuration.cpp" />
+    <ClCompile Include="xml_txt_configuration.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ab_oil_pressure_test.h" />
+    <ClInclude Include="test_container.h" />
+    <ClInclude Include="configuration.h" />
     <ClInclude Include="const_iterator_base.h" />
+    <ClInclude Include="facade_interface.h" />
     <ClInclude Include="forward_list_base.h" />
     <ClInclude Include="helper.h" />
+    <ClInclude Include="mysql_configuration.h" />
     <ClInclude Include="mysql_inserter.h" />
     <ClInclude Include="mysql_read.h" />
     <ClInclude Include="mysql_selector.h" />
     <ClInclude Include="mysql_session.h" />
     <ClInclude Include="mysql_write.h" />
+    <ClInclude Include="txt_configuration.h" />
     <ClInclude Include="txt_const_iterator.h" />
     <ClInclude Include="element.h" />
     <ClInclude Include="element_ex.h" />
@@ -67,10 +80,14 @@
     <ClInclude Include="key.h" />
     <ClInclude Include="test_type.h" />
     <ClInclude Include="test_type_ex.h" />
+    <ClInclude Include="txt_facade.h" />
     <ClInclude Include="txt_forward_list.h" />
     <ClInclude Include="txt_read.h" />
     <ClInclude Include="txt_reader.h" />
     <ClInclude Include="txt_write.h" />
+    <ClInclude Include="xml_configuration.h" />
+    <ClInclude Include="xml_mysql_configuration.h" />
+    <ClInclude Include="xml_txt_configuration.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
@@ -157,8 +174,8 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalLibraryDirectories>../../../gemeinsam/bin/$(Platform)/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>date_time.lib;enum.lib;uwi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\other\TiXml2\bin\$(Platform)\$(Configuration);../../../gemeinsam/bin/$(Platform)/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>date_time.lib;enum.lib;uwi.lib;log.lib;xml.lib;TiXml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -170,13 +187,14 @@
       <PreprocessorDefinitions>_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING;_DEBUG;NHILL_DZG_ABOPT_EXPORT;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>C:\Program Files\MySQL\MySQL Connector C++ 8.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalLibraryDirectories>../../../gemeinsam/bin/$(Platform)/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>date_time.lib;enum.lib;uwi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\other\TiXml2\bin\$(Platform)\$(Configuration);../../../gemeinsam/bin/$(Platform)/$(Configuration);C:\Program Files\MySQL\MySQL Connector C++ 8.0\lib64\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>date_time.lib;enum.lib;uwi.lib;log.lib;xml.lib;TiXml2.lib;mysqlcppconn8.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -197,8 +215,8 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalLibraryDirectories>../../../gemeinsam/bin/$(Platform)/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>date_time.lib;enum.lib;uwi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\other\TiXml2\bin\$(Platform)\$(Configuration);../../../gemeinsam/bin/$(Platform)/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>date_time.lib;enum.lib;uwi.lib;log.lib;xml.lib;TiXml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -220,8 +238,8 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalLibraryDirectories>../../../gemeinsam/bin/$(Platform)/$(Configuration);C:\Program Files\MySQL\MySQL Connector C++ 8.0\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>date_time.lib;enum.lib;uwi.lib;mysqlcppconn8.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\other\TiXml2\bin\$(Platform)\$(Configuration);../../../gemeinsam/bin/$(Platform)/$(Configuration);C:\Program Files\MySQL\MySQL Connector C++ 8.0\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>date_time.lib;enum.lib;uwi.lib;log.lib;xml.lib;TiXml2.lib;mysqlcppconn8.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

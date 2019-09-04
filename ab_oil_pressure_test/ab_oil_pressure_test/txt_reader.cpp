@@ -1,6 +1,7 @@
 #include "txt_reader.h"
 #include "txt_forward_list.h"
 #include "../../../gemeinsam/uwi/dls.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -134,6 +135,31 @@ bool nhill::datenzugriff::ab_oil_pressure_test::txt::Reader::find( std::vector<A
 		if( current_test.rec01.licensee_code == licensee_code )
 		{
 			tests.push_back( current_test );
+		}
+	}
+
+	return 0 < tests.size();
+}
+
+bool nhill::datenzugriff::ab_oil_pressure_test::txt::Reader::find( std::vector<Ab_oil_pressure_test>& tests, const std::list<Test_type>& test_types )
+{
+	tests.clear();
+
+	if( !is_open() && !open() )
+	{
+		return false;
+	}
+
+	for( const auto& current_test : *forward_list_ )
+	{
+		for( const auto& rec04 : current_test.rec04c )
+		{
+			auto itr{ std::find( test_types.cbegin(), test_types.cend(), rec04.test_type ) };
+			if( itr != test_types.cend())
+			{
+				tests.push_back( current_test );
+				break;
+			}
 		}
 	}
 
