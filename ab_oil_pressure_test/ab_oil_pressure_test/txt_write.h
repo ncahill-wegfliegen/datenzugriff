@@ -12,9 +12,6 @@ class Date;
 
 namespace datenzugriff
 {
-
-class Ab_oil_pressure_test;
-
 namespace ab_oil_pressure_test
 {
 
@@ -26,6 +23,7 @@ class Record02;
 class Record03;
 class Record04;
 class Record05;
+class Test;
 enum class Record_type;
 enum class Test_type;
 
@@ -60,7 +58,7 @@ NHILL_DZG_ABOPT_PORT_FUNCTION std::ostream& write( std::ostream& out, const Key&
 NHILL_DZG_ABOPT_PORT_FUNCTION std::ostream& write( std::ostream& out, const Key& key, const Record04& rec );
 NHILL_DZG_ABOPT_PORT_FUNCTION std::ostream& write( std::ostream& out, const Key& key, const Record05& rec );
 
-NHILL_DZG_ABOPT_PORT_FUNCTION std::ostream& write( std::ostream& out, const Ab_oil_pressure_test& test );
+NHILL_DZG_ABOPT_PORT_FUNCTION std::ostream& write( std::ostream& out, const Test& test );
 }
 }
 }

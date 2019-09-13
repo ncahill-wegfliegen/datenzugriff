@@ -6,7 +6,7 @@
 #include "record04.h"
 #include "record05.h"
 #include "key.h"
-#include "ab_oil_pressure_test.h"
+#include "test.h"
 #include "../../../gemeinsam/date_time/date.h"
 #include "../../../gemeinsam/enum/core/int.h"
 
@@ -222,7 +222,7 @@ ostream& nhill::datenzugriff::ab_oil_pressure_test::txt::write( ostream& out, co
    return out << endl;
 }
 
-ostream& nhill::datenzugriff::ab_oil_pressure_test::txt::write( ostream& out, const Ab_oil_pressure_test& test )
+ostream& nhill::datenzugriff::ab_oil_pressure_test::txt::write( ostream& out, const Test& test )
 {
    const Key& key{ test.key };
 

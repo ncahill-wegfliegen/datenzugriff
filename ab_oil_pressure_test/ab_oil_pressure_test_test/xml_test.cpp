@@ -18,6 +18,8 @@ public:
 	{
 		Configuration& config{ Configuration::instance() };
 
+      config.source = Source::txt;
+
 		config.txt.path = get_path( "ab_oil_pressure_test.txt" );
 
 		config.mysql.username = nhill::crypt::encrypt( "Nicholas C.A. Hill" );

@@ -1,0 +1,39 @@
+#pragma once
+
+#include "port.h"
+#include "facade_interface.h"
+#include "source.h"
+#include <memory>
+
+namespace nhill
+{
+namespace datenzugriff
+{
+namespace ab_oil_pressure_test
+{
+
+class NHILL_DZG_ABOPT_PORT_CLASS Facade final : public Facade_interface
+{
+public:
+   using base = Facade_interface;
+
+   Facade(Source source = Source::txt);
+   ~Facade();
+
+   Test_container find_test_by_uwi( const uwi::Dls& uwi ) final;
+   Test_container find_test_by_licensee_code( const std::string& licensee_code ) final;
+   Test_container find_test_by_field_pool( const std::string& field_code, const std::string& pool_code = {} ) final;
+   Test_container find_test_by_test_type( const std::list<Test_type>& test_types ) final;
+
+   Source source() const;
+   void source( Source );
+
+private:
+#pragma warning(suppress:4251)
+   std::unique_ptr<Facade_interface> facade_;
+   Source source_;
+};
+
+}
+}
+}

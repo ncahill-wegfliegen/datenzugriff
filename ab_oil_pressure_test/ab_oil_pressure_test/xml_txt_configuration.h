@@ -20,10 +20,10 @@ namespace xml
 {
 
 template<> NHILL_DZG_ABOPT_PORT_FUNCTION
-tinyxml2::XMLElement* make_element( tinyxml2::XMLDocument& doc, const nhill::datenzugriff::ab_oil_pressure_test::Txt_configuration& item, std::string element_name );
+tinyxml2::XMLElement* make_element( tinyxml2::XMLDocument& doc, const nhill::datenzugriff::ab_oil_pressure_test::txt::Configuration& item, std::string element_name );
 
 template<> NHILL_DZG_ABOPT_PORT_FUNCTION
-tinyxml2::XMLError from_handle( nhill::datenzugriff::ab_oil_pressure_test::Txt_configuration& item, tinyxml2::XMLHandle handle );
+tinyxml2::XMLError from_handle( nhill::datenzugriff::ab_oil_pressure_test::txt::Configuration& item, tinyxml2::XMLHandle handle );
 
 }
 }

@@ -14,10 +14,7 @@ enum class Record_type
    field_pool = 2, // Designated Field and Pool
    well_data  = 3, // Well Data
    test_data  = 4, // Test Data
-   remark    = 5, // Remarks
-
-   end,
-   begin = well_id
+   remark     = 5, // Remarks
 };
 
 }

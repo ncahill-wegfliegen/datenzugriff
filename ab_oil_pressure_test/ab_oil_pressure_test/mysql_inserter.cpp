@@ -1,6 +1,7 @@
 #include "mysql_inserter.h"
 #include "mysql_session.h"
 #include "mysql_write.h"
+#include "mysql_configuration.h"
 #include "key.h"
 #include "record00.h"
 #include "record01.h"
@@ -8,7 +9,7 @@
 #include "record03.h"
 #include "record04.h"
 #include "record05.h"
-#include "ab_oil_pressure_test.h"
+#include "test.h"
 #include "txt_forward_list.h"
 #include "txt_write.h"
 #include "../../../gemeinsam/enum/core/int.h"
@@ -24,8 +25,13 @@ nhill::datenzugriff::ab_oil_pressure_test::mysql::Inserter::Inserter()
 {
 }
 
-nhill::datenzugriff::ab_oil_pressure_test::mysql::Inserter::Inserter( std::string_view username, std::string_view password )
-   : base{ username, password }
+nhill::datenzugriff::ab_oil_pressure_test::mysql::Inserter::Inserter( std::string_view username, std::string_view password, std::string_view hostname )
+   : base{ username, password, hostname }
+{
+}
+
+nhill::datenzugriff::ab_oil_pressure_test::mysql::Inserter::Inserter( const Configuration& config )
+   : base{ config.username, config.password, config.hostname}
 {
 }
 
@@ -68,7 +74,7 @@ bool nhill::datenzugriff::ab_oil_pressure_test::mysql::Inserter::insert_txt( str
    return true;
 }
 
-bool nhill::datenzugriff::ab_oil_pressure_test::mysql::Inserter::insert( const Ab_oil_pressure_test& test )
+bool nhill::datenzugriff::ab_oil_pressure_test::mysql::Inserter::insert( const Test& test )
 {
    const Key& key{ test.key };
 

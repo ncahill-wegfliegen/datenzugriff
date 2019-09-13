@@ -11,7 +11,7 @@ class Date;
 
 namespace datenzugriff
 {
-class Ab_oil_pressure_test;
+class Test;
 
 namespace ab_oil_pressure_test
 {

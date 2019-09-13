@@ -3,7 +3,7 @@
 using namespace nhill::datenzugriff::ab_oil_pressure_test;
 
 template<>
-tinyxml2::XMLElement* nhill::xml::make_element( tinyxml2::XMLDocument& doc, const Txt_configuration& txt, std::string element_name )
+tinyxml2::XMLElement* nhill::xml::make_element( tinyxml2::XMLDocument& doc, const txt::Configuration& txt, std::string element_name )
 {
 	using namespace tinyxml2;
 
@@ -24,7 +24,7 @@ tinyxml2::XMLElement* nhill::xml::make_element( tinyxml2::XMLDocument& doc, cons
 }
 
 template<>
-tinyxml2::XMLError nhill::xml::from_handle( Txt_configuration& txt, tinyxml2::XMLHandle handle )
+tinyxml2::XMLError nhill::xml::from_handle( txt::Configuration& txt, tinyxml2::XMLHandle handle )
 {
 	using namespace tinyxml2;
 

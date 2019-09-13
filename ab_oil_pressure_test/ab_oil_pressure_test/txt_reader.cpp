@@ -1,5 +1,6 @@
 #include "txt_reader.h"
 #include "txt_forward_list.h"
+#include "test.h"
 #include "../../../gemeinsam/uwi/dls.h"
 #include <algorithm>
 
@@ -48,7 +49,7 @@ close()
 }
 
 bool nhill::datenzugriff::ab_oil_pressure_test::txt::Reader::
-find( Ab_oil_pressure_test& test, const Key& key )
+find( Test& test, const Key& key )
 {
 	test.clear();
 
@@ -72,7 +73,7 @@ find( Ab_oil_pressure_test& test, const Key& key )
 }
 
 bool nhill::datenzugriff::ab_oil_pressure_test::txt::Reader::
-find( std::vector<Ab_oil_pressure_test>& tests, const uwi::Dls& uwi )
+find( Test_container& tests, const uwi::Dls& uwi )
 {
 	tests.clear();
 
@@ -98,7 +99,7 @@ find( std::vector<Ab_oil_pressure_test>& tests, const uwi::Dls& uwi )
 	return 0 < tests.size();
 }
 
-bool nhill::datenzugriff::ab_oil_pressure_test::txt::Reader::find( std::vector<Ab_oil_pressure_test>& tests, std::string_view field_code, std::string_view pool_code )
+bool nhill::datenzugriff::ab_oil_pressure_test::txt::Reader::find( Test_container& tests, std::string_view field_code, std::string_view pool_code )
 {
 	tests.clear();
 
@@ -121,7 +122,7 @@ bool nhill::datenzugriff::ab_oil_pressure_test::txt::Reader::find( std::vector<A
 	return 0 < tests.size();
 }
 
-bool nhill::datenzugriff::ab_oil_pressure_test::txt::Reader::find( std::vector<Ab_oil_pressure_test>& tests, std::string_view licensee_code )
+bool nhill::datenzugriff::ab_oil_pressure_test::txt::Reader::find( Test_container& tests, std::string_view licensee_code )
 {
 	tests.clear();
 
@@ -141,7 +142,7 @@ bool nhill::datenzugriff::ab_oil_pressure_test::txt::Reader::find( std::vector<A
 	return 0 < tests.size();
 }
 
-bool nhill::datenzugriff::ab_oil_pressure_test::txt::Reader::find( std::vector<Ab_oil_pressure_test>& tests, const std::list<Test_type>& test_types )
+bool nhill::datenzugriff::ab_oil_pressure_test::txt::Reader::find( Test_container& tests, const std::list<Test_type>& test_types )
 {
 	tests.clear();
 

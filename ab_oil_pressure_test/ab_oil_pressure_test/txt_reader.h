@@ -1,6 +1,7 @@
 #pragma once
 
 #include "port.h"
+#include "test_container.h"
 #include <memory>
 #include <filesystem>
 
@@ -14,11 +15,10 @@ class Dls;
 
 namespace datenzugriff
 {
-class Ab_oil_pressure_test;
-
 namespace ab_oil_pressure_test
 {
 class Key;
+class Test;
 enum class Test_type;
 
 namespace txt
@@ -38,11 +38,11 @@ public:
 	bool is_open() const;
 	void close();
 
-	bool find( Ab_oil_pressure_test& test, const Key& key );
-	bool find( std::vector<Ab_oil_pressure_test>& tests, const uwi::Dls& uwi );
-	bool find( std::vector<Ab_oil_pressure_test>& tests, std::string_view field_code, std::string_view pool_code );
-	bool find( std::vector<Ab_oil_pressure_test>& tests, std::string_view licensee_code );
-	bool find( std::vector<Ab_oil_pressure_test>& tests, const std::list<Test_type>& test_types );
+	bool find( Test& test, const Key& key );
+	bool find( Test_container& tests, const uwi::Dls& uwi );
+	bool find( Test_container& tests, std::string_view field_code, std::string_view pool_code );
+	bool find( Test_container& tests, std::string_view licensee_code );
+	bool find( Test_container& tests, const std::list<Test_type>& test_types );
 
 private:
 #pragma warning(push)

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ab_oil_pressure_test.h"
+#include "test.h"
 #include "../../../gemeinsam/utility/exception/not_implemented.h"
 
 namespace nhill
@@ -15,10 +15,10 @@ class Const_iterator_base
 {
 public:
    using iterator_category = std::forward_iterator_tag;
-   using value_type        = Ab_oil_pressure_test;
+   using value_type        = Test;
    using difference_type   = ptrdiff_t;
-   using pointer           = const Ab_oil_pressure_test*;
-   using reference         = const Ab_oil_pressure_test &;
+   using pointer           = const Test*;
+   using reference         = const Test &;
    using derived_type      = Const_iterator_derived;
 
    Const_iterator_base( const Const_iterator_base& );
@@ -32,8 +32,8 @@ public:
    virtual bool operator==( const Const_iterator_base& ) const;
    virtual bool operator!=( const Const_iterator_base& ) const;
 
-   virtual const Ab_oil_pressure_test& operator*() const;
-   virtual const Ab_oil_pressure_test& operator->() const;
+   virtual const Test& operator*() const;
+   virtual const Test& operator->() const;
 
    virtual Const_iterator_derived& operator++() = 0;
    virtual Const_iterator_derived  operator++( int ) = 0;
@@ -41,7 +41,7 @@ public:
 protected:
    Const_iterator_base();
 
-   mutable Ab_oil_pressure_test test_;
+   mutable Test test_;
 };
 
 }
@@ -81,13 +81,13 @@ bool nhill::datenzugriff::ab_oil_pressure_test::Const_iterator_base<Const_iterat
 }
 
 template<typename Const_iterator_derived>
-auto nhill::datenzugriff::ab_oil_pressure_test::Const_iterator_base<Const_iterator_derived>::operator*() const->const Ab_oil_pressure_test &
+auto nhill::datenzugriff::ab_oil_pressure_test::Const_iterator_base<Const_iterator_derived>::operator*() const->const Test &
 {
    return test_;
 }
 
 template<typename Const_iterator_derived>
-auto nhill::datenzugriff::ab_oil_pressure_test::Const_iterator_base<Const_iterator_derived>::operator->() const->const Ab_oil_pressure_test &
+auto nhill::datenzugriff::ab_oil_pressure_test::Const_iterator_base<Const_iterator_derived>::operator->() const->const Test &
 {
    return test_;
 }

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "port.h"
-#include "ab_oil_pressure_test.h"
+#include "test.h"
 
 namespace nhill
 {
@@ -14,11 +14,11 @@ template<typename Const_iterator>
 class Forward_list_base
 {
 public:
-	using value_type              = Ab_oil_pressure_test;
-	using pointer                 = Ab_oil_pressure_test *;
-	using const_pointer           = const Ab_oil_pressure_test*;
-	using reference               = Ab_oil_pressure_test &;
-	using const_reference         = const Ab_oil_pressure_test &;
+	using value_type              = Test;
+	using pointer                 = Test *;
+	using const_pointer           = const Test*;
+	using reference               = Test &;
+	using const_reference         = const Test &;
 	using size_type               = size_t;
 	using difference_type         = std::ptrdiff_t;
 	using const_iterator          = Const_iterator;

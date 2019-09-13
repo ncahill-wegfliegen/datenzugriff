@@ -15,10 +15,10 @@ namespace xml
 {
 
 template<> NHILL_DZG_ABOPT_PORT_FUNCTION
-tinyxml2::XMLElement* make_element( tinyxml2::XMLDocument& doc, const nhill::datenzugriff::ab_oil_pressure_test::Mysql_configuration& mysql, std::string element_name );
+tinyxml2::XMLElement* make_element( tinyxml2::XMLDocument& doc, const nhill::datenzugriff::ab_oil_pressure_test::mysql::Configuration& mysql, std::string element_name );
 
 template<> NHILL_DZG_ABOPT_PORT_FUNCTION
-tinyxml2::XMLError from_handle( nhill::datenzugriff::ab_oil_pressure_test::Mysql_configuration& mysql, tinyxml2::XMLHandle handle );
+tinyxml2::XMLError from_handle( nhill::datenzugriff::ab_oil_pressure_test::mysql::Configuration& mysql, tinyxml2::XMLHandle handle );
 
 }
 }

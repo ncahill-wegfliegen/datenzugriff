@@ -6,7 +6,7 @@
 #include "record03.h"
 #include "record04.h"
 #include "record05.h"
-#include "ab_oil_pressure_test.h"
+#include "test.h"
 #include "helper.h"
 #include "../../../gemeinsam/utility/str.h"
 #include "../../../gemeinsam/enum/core/int.h"
@@ -276,7 +276,7 @@ bool nhill::datenzugriff::ab_oil_pressure_test::txt::read( Record05& rec, std::s
    return true;
 }
 
-bool nhill::datenzugriff::ab_oil_pressure_test::txt::read( Ab_oil_pressure_test& test, istream& in )
+bool nhill::datenzugriff::ab_oil_pressure_test::txt::read( Test& test, istream& in )
 {
    test.clear();
 

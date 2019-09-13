@@ -28,9 +28,6 @@
     <ClCompile Include="record_type_ex.cpp">
       <Filter>record</Filter>
     </ClCompile>
-    <ClCompile Include="ab_oil_pressure_test.cpp">
-      <Filter>test</Filter>
-    </ClCompile>
     <ClCompile Include="key.cpp">
       <Filter>test</Filter>
     </ClCompile>
@@ -91,6 +88,42 @@
     <ClCompile Include="txt_facade.cpp">
       <Filter>facade</Filter>
     </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="mysql_facade.cpp">
+      <Filter>facade</Filter>
+    </ClCompile>
+    <ClCompile Include="facade.cpp">
+      <Filter>facade</Filter>
+    </ClCompile>
+    <ClCompile Include="source_ex.cpp">
+      <Filter>facade</Filter>
+    </ClCompile>
+    <ClCompile Include="licensee.cpp">
+      <Filter>licensee</Filter>
+    </ClCompile>
+    <ClCompile Include="licensee_container.cpp">
+      <Filter>licensee</Filter>
+    </ClCompile>
+    <ClCompile Include="txt_record.cpp">
+      <Filter>txt</Filter>
+    </ClCompile>
+    <ClCompile Include="txt_record00.cpp">
+      <Filter>txt</Filter>
+    </ClCompile>
+    <ClCompile Include="txt_key.cpp">
+      <Filter>txt</Filter>
+    </ClCompile>
+    <ClCompile Include="txt_parse.cpp">
+      <Filter>txt</Filter>
+    </ClCompile>
+    <ClCompile Include="txt_test.cpp">
+      <Filter>txt</Filter>
+    </ClCompile>
+    <ClCompile Include="txt_raw_facade.cpp">
+      <Filter>facade</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="record.h">
@@ -125,9 +158,6 @@
     </ClInclude>
     <ClInclude Include="record_type_ex.h">
       <Filter>record</Filter>
-    </ClInclude>
-    <ClInclude Include="ab_oil_pressure_test.h">
-      <Filter>test</Filter>
     </ClInclude>
     <ClInclude Include="key.h">
       <Filter>test</Filter>
@@ -198,6 +228,49 @@
     <ClInclude Include="test_container.h">
       <Filter>test</Filter>
     </ClInclude>
+    <ClInclude Include="test.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="key_container.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="mysql_facade.h">
+      <Filter>facade</Filter>
+    </ClInclude>
+    <ClInclude Include="facade.h">
+      <Filter>facade</Filter>
+    </ClInclude>
+    <ClInclude Include="source.h">
+      <Filter>facade</Filter>
+    </ClInclude>
+    <ClInclude Include="source_ex.h">
+      <Filter>facade</Filter>
+    </ClInclude>
+    <ClInclude Include="licensee.h">
+      <Filter>licensee</Filter>
+    </ClInclude>
+    <ClInclude Include="licensee_container.h">
+      <Filter>licensee</Filter>
+    </ClInclude>
+    <ClInclude Include="txt_record.h">
+      <Filter>txt</Filter>
+    </ClInclude>
+    <ClInclude Include="txt_record00.h">
+      <Filter>txt</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="txt_parse.h">
+      <Filter>txt</Filter>
+    </ClInclude>
+    <ClInclude Include="txt_key.h">
+      <Filter>txt</Filter>
+    </ClInclude>
+    <ClInclude Include="txt_test.h">
+      <Filter>txt</Filter>
+    </ClInclude>
+    <ClInclude Include="txt_raw_facade.h">
+      <Filter>facade</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="record">
@@ -224,8 +297,14 @@
     <Filter Include="xml">
       <UniqueIdentifier>{4398de78-0568-4a32-a67e-7ee5ac4459b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="licensee">
+      <UniqueIdentifier>{b78f397c-9dd6-4838-a840-2a7bdacb216c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ab_oil_pressure_test.rc" />
   </ItemGroup>
 </Project>

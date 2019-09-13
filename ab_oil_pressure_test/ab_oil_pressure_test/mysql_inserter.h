@@ -14,8 +14,6 @@ namespace nhill
 {
 namespace datenzugriff
 {
-class Ab_oil_pressure_test;
-
 namespace ab_oil_pressure_test
 {
 
@@ -26,10 +24,12 @@ class Record02;
 class Record03;
 class Record04;
 class Record05;
+class Test;
 enum class Test_type;
 
 namespace mysql
 {
+class Configuration;
 
 class NHILL_DZG_ABOPT_PORT_CLASS Inserter : public Session
 {
@@ -37,11 +37,12 @@ public:
 	using base = Session;
 
 	Inserter();
-	Inserter( std::string_view  username, std::string_view password );
+	Inserter( std::string_view  username, std::string_view password, std::string_view hostname );
+   Inserter( const Configuration& config );
 	~Inserter();
 
 	bool insert_txt( std::string_view path_in, std::string_view path_log = {} );
-	bool insert( const Ab_oil_pressure_test& test );
+	bool insert( const Test& test );
 	bool insert( const Key& key, const Record00& rec00 ); // well name and on production date
 	bool insert( const Key& key, const Record01& rec01 ); // licensee and well status
 	bool insert( const Key& key, const Record02& rec02 ); // designated field and pool

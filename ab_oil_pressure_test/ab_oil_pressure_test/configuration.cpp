@@ -1,18 +1,19 @@
 #include "configuration.h"
 #include "xml_configuration.h"
 #include <fstream>
+#include <filesystem>
 
 auto nhill::datenzugriff::ab_oil_pressure_test::Configuration::instance()->Configuration &
 {
-	static Configuration instance;
-	return instance;
+   static Configuration instance;
+   return instance;
 }
 
 nhill::datenzugriff::ab_oil_pressure_test::Configuration::Configuration()
-	: txt{}
-	, mysql{}
+   : txt{}
+   , mysql{}
 {
-	load();
+   load();
 }
 
 
@@ -20,12 +21,12 @@ nhill::datenzugriff::ab_oil_pressure_test::Configuration::~Configuration() = def
 
 bool nhill::datenzugriff::ab_oil_pressure_test::Configuration::load()
 {
-	tinyxml2::XMLError error{ xml::read( *this, filename, "configuration" ) };
-	return error == tinyxml2::XML_NO_ERROR;
+   tinyxml2::XMLError error{ xml::read( *this, filename, "configuration" ) };
+   return error == tinyxml2::XML_NO_ERROR;
 }
 
 bool nhill::datenzugriff::ab_oil_pressure_test::Configuration::save()
 {
-	tinyxml2::XMLError error{ xml::write( filename, *this, "configuration" ) };
-	return error == tinyxml2::XML_NO_ERROR;
+   tinyxml2::XMLError error{ xml::write( filename, *this, "configuration" ) };
+   return error == tinyxml2::XML_NO_ERROR;
 }

@@ -1,6 +1,7 @@
 #include "mysql_selector.h"
 #include "mysql_session.h"
 #include "mysql_read.h"
+#include "mysql_configuration.h"
 #include "key.h"
 #include "record00.h"
 #include "record01.h"
@@ -9,7 +10,7 @@
 #include "record04.h"
 #include "record05.h"
 #include "record_type_ex.h"
-#include "ab_oil_pressure_test.h"
+#include "test.h"
 #include "helper.h"
 #include "../../../gemeinsam/uwi/dls.h"
 #include <mysqlx/xdevapi.h>
@@ -22,18 +23,22 @@ using namespace std;
 namespace
 {
 using namespace nhill::datenzugriff::ab_oil_pressure_test;
-using namespace nhill::datenzugriff::ab_oil_pressure_test::mysql;
 
 constexpr char slash{ '\'' };
 
-map<Record_type, string> columns{
-   {Record_type::well_id ,  "well_name, UNIX_TIMESTAMP(on_production_date) AS on_production_unixts" },
-   {Record_type::licensee, "licensee_code, licensee_abbrev, survey_coord_oper_code, survey_coord_abbrev, UNIX_TIMESTAMP(well_status_date) AS well_status_unixts, well_status_code" },
-   {Record_type::field_pool, "field_name, pool_name"},
-   {Record_type::well_data, "field_code, pool_code, consol_interval_top, consol_interval_bottom, kb_elevation, pool_datum_depth, ground_elevation, well_datum_depth, initial_pool_pressure, reservoir_gradient"},
-   {Record_type::test_data, "UNIX_TIMESTAMP(test_date) AS test_unixts, test_type, UNIX_TIMESTAMP(historical_well_status_date) AS historical_well_status_unixts, historical_well_status_code, casing_pressure, mpp_depth, gauge_run_depth, run_depth_gradient, run_depth_pressure, reservoir_temperature, initial_liquid_level, final_liquid_level, gas_gradient, oil_gradient, water_gradient, mpp_pressure, datum_depth_pressure, extrapolated_pressure_indicator, extrapolated_mpp_pressure, extrapolated_datum_depth_pressure, shut_in_period, footnote_number"},
-   {Record_type::remark, "remark_indicator, remark"}
-};
+string columns(Record_type record_type)
+{
+	switch( record_type )
+	{
+	case Record_type::well_id: return  "well_name, UNIX_TIMESTAMP(on_production_date) AS on_production_unixts";
+	case Record_type::licensee: return "licensee_code, licensee_abbrev, survey_coord_oper_code, survey_coord_abbrev, UNIX_TIMESTAMP(well_status_date) AS well_status_unixts, well_status_code";
+	case Record_type::field_pool: return "field_name, pool_name";
+	case Record_type::well_data: return "field_code, pool_code, consol_interval_top, consol_interval_bottom, kb_elevation, pool_datum_depth, ground_elevation, well_datum_depth, initial_pool_pressure, reservoir_gradient";
+	case Record_type::test_data: return "UNIX_TIMESTAMP(test_date) AS test_unixts, test_type, UNIX_TIMESTAMP(historical_well_status_date) AS historical_well_status_unixts, historical_well_status_code, casing_pressure, mpp_depth, gauge_run_depth, run_depth_gradient, run_depth_pressure, reservoir_temperature, initial_liquid_level, final_liquid_level, gas_gradient, oil_gradient, water_gradient, mpp_pressure, datum_depth_pressure, extrapolated_pressure_indicator, extrapolated_mpp_pressure, extrapolated_datum_depth_pressure, shut_in_period, footnote_number";
+	case Record_type::remark: return "remark_indicator, remark";
+	default: return "";
+	}
+}
 
 
 
@@ -47,8 +52,14 @@ Selector()
 }
 
 nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::
-Selector( std::string_view username, std::string_view password )
-   : base{ username, password }
+Selector( std::string_view username, std::string_view password, std::string_view hostname )
+   : base{ username, password, hostname }
+{
+}
+
+nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::
+Selector( const Configuration& config )
+   : Selector{config.username, config.password, config.hostname }
 {
 }
 
@@ -245,13 +256,13 @@ template<> auto nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::find
    }
 }
 
-std::list<Key> nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::find_key_by_uwi( const uwi::Dls& uwi )
+Key_container nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::find_key_by_uwi( const uwi::Dls& uwi )
 {
    try
    {
       unsigned count_consol_interval_num{ this->count_consol_interval_num( uwi ) };
 
-      list<Key> keys;
+      Key_container keys;
       for( unsigned consol_interval_num{ 1 } ; consol_interval_num <= count_consol_interval_num ; ++consol_interval_num )
       {
          keys.push_back( { uwi, consol_interval_num } );
@@ -265,7 +276,7 @@ std::list<Key> nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::find_
    }
 }
 
-auto nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::find_key_by_licensee_code( const std::string& licensee_code )->list<Key>
+auto nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::find_key_by_licensee_code( const std::string& licensee_code )->Key_container
 {
    try
    {
@@ -279,7 +290,7 @@ auto nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::find_key_by_lic
 
       mysqlx::SqlResult rows{ session().sql( oss.str() ).execute() };
 
-      list<Key> keys;
+      Key_container keys;
       for( const auto& row : rows )
       {
          keys.push_back( convert<Key>(row) );
@@ -293,7 +304,7 @@ auto nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::find_key_by_lic
    }
 }
 
-auto nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::find_key_by_field_pool( const std::string& field_code, const std::string& pool_code )->list<Key>
+auto nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::find_key_by_field_pool( const std::string& field_code, const std::string& pool_code )->Key_container
 {
    try
    {
@@ -311,7 +322,7 @@ auto nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::find_key_by_fie
 
       mysqlx::SqlResult rows{ session().sql( oss.str() ).execute() };
 
-      list<Key> keys;
+      Key_container keys;
       for( const auto& row : rows )
       {
          keys.push_back( convert<Key>( row ) );
@@ -325,7 +336,7 @@ auto nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::find_key_by_fie
    }
 }
 
-std::list<Key> nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::find_key_by_test_type( const std::list<Test_type>& test_types )
+Key_container nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::find_key_by_test_type( const std::list<Test_type>& test_types )
 {
    try
    {
@@ -344,7 +355,7 @@ std::list<Key> nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::find_
 
       mysqlx::SqlResult rows{ session().sql( oss.str() ).execute() };
 
-      list<Key> keys;
+      Key_container keys;
       for( const auto& row : rows )
       {
          keys.push_back( convert<Key>( row ) );
@@ -358,14 +369,14 @@ std::list<Key> nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::find_
    }
 }
 
-auto nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::find_test( const Key& key )->Ab_oil_pressure_test
+auto nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::find_test( const Key& key )->Test
 {
    try
    {
       unsigned count_test_index{ this->count_test_index( key ) };
       unsigned count_remark_indicator{ this->count_remark_indicator( key ) };
 
-      Ab_oil_pressure_test test;
+      Test test;
 
       test.rec00 = find_rec<Record00>( key );
       test.rec01 = find_rec<Record01>( key );
@@ -390,11 +401,11 @@ auto nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::find_test( cons
    }
 }
 
-auto nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::find_test( const std::list<Key>& keys )->list<Ab_oil_pressure_test>
+auto nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::find_test( const Key_container& keys )->Test_container
 {
    try
    {
-      list<Ab_oil_pressure_test> tests;
+      Test_container tests;
       for( const auto& key : keys )
       {
          tests.push_back( find_test( key ) );
@@ -613,7 +624,7 @@ mysqlx::SqlResult nhill::datenzugriff::ab_oil_pressure_test::mysql::Selector::ex
    ostringstream oss;
 
    oss << "SELECT ";
-   oss << columns[record_type];
+   oss << columns(record_type);
    oss << " FROM ab_oil_pressure_test.";
    oss << table;
    oss << " WHERE ";

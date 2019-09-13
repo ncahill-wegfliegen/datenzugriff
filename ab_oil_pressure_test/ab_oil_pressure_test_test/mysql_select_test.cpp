@@ -3,7 +3,7 @@
 #include "../../../gemeinsam/uwi/dls.h"
 #include "../ab_oil_pressure_test/key.h"
 #include "../ab_oil_pressure_test/mysql_selector.h"
-#include "../ab_oil_pressure_test/ab_oil_pressure_test.h"
+#include "../ab_oil_pressure_test/test.h"
 
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -13,7 +13,6 @@ using namespace nhill::uwi;
 using namespace nhill::uwi::dls;
 using namespace nhill::datenzugriff;
 using namespace nhill::datenzugriff::ab_oil_pressure_test;
-using namespace nhill::datenzugriff::ab_oil_pressure_test::mysql;
 
 namespace ab_oil_pressure_test_test
 {
@@ -25,11 +24,11 @@ public:
    {
       Key key{ {0, 1, 1, 11, 16, 4, 0}, 1 };
 
-      Selector select{ "nhill-bemuehen", "piondecay" };
+      mysql::Selector select{ "nhill-bemuehen", "piondecay", "localhost" };
 
       try
       {
-         Ab_oil_pressure_test test{ select.find_test( key ) };
+         Test test{ select.find_test( key ) };
          Assert::IsTrue( true );
       }
       catch( exception e )
@@ -43,12 +42,12 @@ public:
    {
       Dls uwi{0, 1, 1, 11, 16, 4, 0};
 
-      Selector select{ "nhill-bemuehen", "piondecay" };
+      mysql::Selector select{ "nhill-bemuehen", "piondecay", "localhost" };
 
       try
       {
-         list<Key> keys{ select.find_key_by_uwi( uwi ) };
-         list<Ab_oil_pressure_test> tests{ select.find_test( keys ) };
+         Key_container keys{ select.find_key_by_uwi( uwi ) };
+         Test_container tests{ select.find_test( keys ) };
          Assert::IsTrue( true );
       }
       catch( exception e )
@@ -61,11 +60,11 @@ public:
    TEST_METHOD( find_key_by_licensee_code )
    {
       const char* const licensee_code{ "A6D5" };
-      Selector select{ "nhill-bemuehen", "piondecay" };
+      mysql::Selector select{ "nhill-bemuehen", "piondecay", "localhost" };
 
       try
       {
-         list<Key> keys{ select.find_key_by_licensee_code( licensee_code ) };
+         Key_container keys{ select.find_key_by_licensee_code( licensee_code ) };
          Assert::AreEqual( static_cast<size_t>(420), keys.size() );
       }
       catch( exception e )
@@ -79,11 +78,11 @@ public:
    {
       const char* const field_code{ "0595" };
       const char* const pool_code{ "0332037" };
-      Selector select{ "nhill-bemuehen", "piondecay" };
+      mysql::Selector select{ "nhill-bemuehen", "piondecay", "localhost" };
 
       try
       {
-         list<Key> keys{ select.find_key_by_field_pool( field_code, pool_code ) };
+         Key_container keys{ select.find_key_by_field_pool( field_code, pool_code ) };
          Assert::AreEqual( static_cast<size_t>(48), keys.size() );
       }
       catch( exception e )
@@ -96,11 +95,11 @@ public:
    TEST_METHOD( find_key_by_test_type)
    {
       list<Test_type> test_types{ Test_type::top_hole_undefined, Test_type::top_hole_buildup };
-      Selector select{ "nhill-bemuehen", "piondecay" };
+      mysql::Selector select{ "nhill-bemuehen", "piondecay", "localhost" };
 
       try
       {
-         list<Key> keys{ select.find_key_by_test_type( test_types ) };
+         Key_container keys{ select.find_key_by_test_type( test_types ) };
          Assert::AreEqual( static_cast<size_t>(717), keys.size() );
       }
       catch( exception e )
@@ -113,12 +112,12 @@ public:
    TEST_METHOD( find_tests_by_licensee_code )
    {
       const char* const licensee_code{ "A6D5" };
-      Selector select{ "nhill-bemuehen", "piondecay" };
+      mysql::Selector select{ "nhill-bemuehen", "piondecay", "localhost" };
 
       try
       {
-         list<Key> keys{ select.find_key_by_licensee_code( licensee_code ) };
-         list<Ab_oil_pressure_test> tests{ select.find_test( keys ) };
+         Key_container keys{ select.find_key_by_licensee_code( licensee_code ) };
+         Test_container tests{ select.find_test( keys ) };
          Assert::AreEqual( static_cast<size_t>(420), tests.size() );
       }
       catch( exception e )
@@ -134,7 +133,7 @@ public:
    {
       Dls uwi{ 0, 9, 4, 1, 17, 4, 0 };
 
-      Selector select{ "nhill-bemuehen", "piondecay" };
+      mysql::Selector select{ "nhill-bemuehen", "piondecay", "localhost" };
 
       unsigned consol_interval_nums{  select.count_consol_interval_num( uwi ) };
       Assert::AreEqual( 2U, consol_interval_nums );
@@ -144,7 +143,7 @@ public:
    {
       Key key{ {0, 1, 5, 1, 9, 4, 2}, 1 };
 
-      Selector select{ "nhill-bemuehen", "piondecay" };
+      mysql::Selector select{ "nhill-bemuehen", "piondecay", "localhost" };
 
       try
       {
@@ -162,7 +161,7 @@ public:
    {
       Key key{ {0, 1, 5, 1, 9, 4, 2}, 1 };
 
-      Selector select{ "nhill-bemuehen", "piondecay" };
+      mysql::Selector select{ "nhill-bemuehen", "piondecay", "localhost" };
 
       try
       {
@@ -180,7 +179,7 @@ public:
    {
       Key key{ {0, 1, 5, 1, 9, 4, 2}, 1 };
 
-      Selector select{ "nhill-bemuehen", "piondecay" };
+      mysql::Selector select{ "nhill-bemuehen", "piondecay", "localhost" };
 
       try
       {
@@ -198,7 +197,7 @@ public:
    {
       Key key{ {0, 1, 5, 1, 9, 4, 2}, 1 };
 
-      Selector select{ "nhill-bemuehen", "piondecay" };
+      mysql::Selector select{ "nhill-bemuehen", "piondecay", "localhost" };
 
       try
       {

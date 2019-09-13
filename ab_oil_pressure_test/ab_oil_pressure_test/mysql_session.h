@@ -35,11 +35,11 @@ class NHILL_DZG_ABOPT_PORT_CLASS Session
 {
 public:
    Session();
-   Session( std::string_view  username, std::string_view password );
+   Session( std::string_view  username, std::string_view password, std::string_view hostname );
    virtual ~Session();
 
    bool open();
-   bool open( std::string_view  username, std::string_view password );
+   bool open( std::string_view  username, std::string_view password, std::string_view hostname );
    bool is_open() const;
    void close();
 
@@ -57,6 +57,7 @@ private:
 #pragma warning(disable:4251)
    std::string username_;
    std::string password_;
+   std::string hostname_;
    std::unique_ptr<mysqlx::Session> session_;
 #pragma warning(pop)
 };

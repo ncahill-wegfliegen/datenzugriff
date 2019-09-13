@@ -48,6 +48,12 @@
     <ClCompile Include="xml_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="facade_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="licensee_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">

@@ -26,11 +26,11 @@ public:
       const char* const str{ "00	00	03	05	001	08	4	0	01	ONEFOUR BLKBT 3-5-1-8               	00000000	" };
       Key key;
       bool success{ txt::read( key, str ) };
-      Assert::IsTrue( success, L"Failed to parse the key." );
+      Assert::IsTrue( success, L"Failed to Parse the key." );
 
       Record00 rec00;
       success = txt::read( rec00, str );
-      Assert::IsTrue( success, L"Failed to parse Record." );
+      Assert::IsTrue( success, L"Failed to Parse Record." );
 
       const char* const path_out{ R"(c:\temp\rec00.txt)" };
       ofstream out{ path_out };
@@ -43,11 +43,11 @@ public:
       const char* const str{ "03	00	03	05	001	08	4	0	01	0014	0000000	0295.00	0310.29	1101.50	 0000.00	1097.80	0000.00	00000	00.000	" };
       Key key;
       bool success{ txt::read( key, str ) };
-      Assert::IsTrue( success, L"Failed to parse the key." );
+      Assert::IsTrue( success, L"Failed to Parse the key." );
 
       Record03 rec;
       success = txt::read( rec, str );
-      Assert::IsTrue( success, L"Failed to parse Record." );
+      Assert::IsTrue( success, L"Failed to Parse Record." );
 
       const char* const path_out{ R"(c:\temp\rec03.txt)" };
       ofstream out{ path_out };

@@ -8,13 +8,15 @@ using namespace std;
 nhill::datenzugriff::ab_oil_pressure_test::mysql::Session::Session()
    : username_{}
    , password_{}
+   , hostname_{}
    , session_{ nullptr }
 {
 }
 
-nhill::datenzugriff::ab_oil_pressure_test::mysql::Session::Session( std::string_view username, std::string_view password )
+nhill::datenzugriff::ab_oil_pressure_test::mysql::Session::Session( std::string_view username, std::string_view password, std::string_view hostname )
    : username_{ username }
    , password_{ password }
+   , hostname_{ hostname }
    , session_{ nullptr }
 {
    open();
@@ -27,10 +29,10 @@ nhill::datenzugriff::ab_oil_pressure_test::mysql::Session::~Session()
 
 bool nhill::datenzugriff::ab_oil_pressure_test::mysql::Session::open()
 {
-   return open( username_, password_ );
+   return open( username_, password_, hostname_ );
 }
 
-bool nhill::datenzugriff::ab_oil_pressure_test::mysql::Session::open( std::string_view username, std::string_view password )
+bool nhill::datenzugriff::ab_oil_pressure_test::mysql::Session::open( std::string_view username, std::string_view password, std::string_view hostname )
 {
    if( session_ != nullptr )
    {
@@ -38,7 +40,7 @@ bool nhill::datenzugriff::ab_oil_pressure_test::mysql::Session::open( std::strin
    }
 
    ostringstream url;
-   url << username << ':' << password << "@localhost/";
+   url << username << ':' << password << "@" << hostname;
 
    try
    {
@@ -119,22 +121,22 @@ bool nhill::datenzugriff::ab_oil_pressure_test::mysql::Session::execute_sql( con
 mysqlx::SqlResult nhill::datenzugriff::ab_oil_pressure_test::mysql::Session::execute_select( std::string_view table, std::string_view columns, std::string_view where )
 {
 
-	ostringstream oss;
-	oss << "SELECT ";
-	oss << columns;
-	oss << " FROM ab_oil_pressure_test.";
-	oss << table;
-	oss << " WHERE ";
-	oss << where;
-	oss << ';';
+   ostringstream oss;
+   oss << "SELECT ";
+   oss << columns;
+   oss << " FROM ab_oil_pressure_test.";
+   oss << table;
+   oss << " WHERE ";
+   oss << where;
+   oss << ';';
 
-	try
-	{
-		return session_->sql( oss.str() ).execute();
-	}
-	catch( exception e )
-	{
-		throw e;
-	}
+   try
+   {
+      return session_->sql( oss.str() ).execute();
+   }
+   catch( exception e )
+   {
+      throw e;
+   }
 }
 

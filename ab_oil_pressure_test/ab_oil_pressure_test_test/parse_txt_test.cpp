@@ -10,10 +10,12 @@
 #include "../ab_oil_pressure_test/record05.h"
 #include "../ab_oil_pressure_test/txt_read.h"
 #include "../ab_oil_pressure_test/txt_forward_list.h"
-#include "../ab_oil_pressure_test/ab_oil_pressure_test.h"
+#include "../ab_oil_pressure_test/test.h"
 #include <fstream>
 #include <windows.h>
 #include <filesystem>
+
+#include <iomanip>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace nhill::datenzugriff::ab_oil_pressure_test;
@@ -89,10 +91,10 @@ public:
       ifstream in{ get_path("ab_oil_pressure_test.txt")};
       Assert::IsTrue( in.is_open(), L"Failed to open the data file." );
 
-      Ab_oil_pressure_test test1;
+      Test test1;
       txt::read( test1, in );
 
-      Ab_oil_pressure_test test2;
+      Test test2;
       txt::read( test2, in );
 
       in.close();

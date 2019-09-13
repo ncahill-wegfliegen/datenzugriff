@@ -9,16 +9,19 @@ namespace datenzugriff
 {
 namespace ab_oil_pressure_test
 {
+namespace txt
+{
 
-class NHILL_DZG_ABOPT_PORT_CLASS Txt_configuration
+class NHILL_DZG_ABOPT_PORT_CLASS Configuration
 {
 public:
-	
+
 #pragma warning (suppress:4251)
-	std::filesystem::path path;	/// <summary>The full path of the 'ab_oil_pressure_test.txt' text file.</summary>
+   std::filesystem::path path;	/// <summary>The full path of the 'ab_oil_pressure_test.txt' text file.</summary>
 
 };
 
+}
 }
 }
 }

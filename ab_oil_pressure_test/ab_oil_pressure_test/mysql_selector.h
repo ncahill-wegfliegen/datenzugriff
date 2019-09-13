@@ -2,6 +2,8 @@
 
 #include "port.h"
 #include "mysql_session.h"
+#include "test_container.h"
+#include "key_container.h"
 #include <map>
 #include <string>
 #include <memory>
@@ -32,12 +34,9 @@ class Date;
 
 namespace datenzugriff
 {
-class Ab_oil_pressure_test;
-
 namespace ab_oil_pressure_test
 {
 
-class Key;
 class Record00;
 class Record01;
 class Record02;
@@ -49,6 +48,7 @@ enum class Test_type;
 
 namespace mysql
 {
+class Configuration;
 
 class NHILL_DZG_ABOPT_PORT_CLASS Selector : public Session
 {
@@ -56,7 +56,8 @@ public:
    using base = Session;
 
    Selector();
-   Selector( std::string_view  username, std::string_view password );
+   Selector( std::string_view  username, std::string_view password, std::string_view hostname );
+   Selector( const Configuration& config );
    ~Selector();
 
    /// <summary>The count of the consol_interval_nums that are associated with the given uwi.</summary>
@@ -72,13 +73,13 @@ public:
    template<> Record04 find_rec( const Key& key, int test_index );
    template<> Record05 find_rec( const Key& key, int remark_indicator );
 
-   std::list<Key> find_key_by_uwi( const uwi::Dls& uwi );
-   std::list<Key> find_key_by_licensee_code( const std::string& licensee_code );
-   std::list<Key> find_key_by_field_pool( const std::string& field_code, const std::string& pool_code = {} );
-   std::list<Key> find_key_by_test_type( const std::list<Test_type>& test_types );
+   Key_container find_key_by_uwi( const uwi::Dls& uwi );
+   Key_container find_key_by_licensee_code( const std::string& licensee_code );
+   Key_container find_key_by_field_pool( const std::string& field_code, const std::string& pool_code = {} );
+   Key_container find_key_by_test_type( const std::list<Test_type>& test_types );
 
-   Ab_oil_pressure_test find_test( const Key& key );
-   std::list<Ab_oil_pressure_test> find_test( const std::list<Key>& keys );
+   Test find_test( const Key& key );
+   Test_container find_test( const Key_container& keys );
 
 protected:
    static std::string build_where( Record_type record_type, const Key& key, int index = -1 );
