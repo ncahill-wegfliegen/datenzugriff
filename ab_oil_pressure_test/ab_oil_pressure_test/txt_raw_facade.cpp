@@ -5,6 +5,7 @@
 #include "txt_read.h"
 #include "test.h"
 #include "../../../gemeinsam/uwi/dls.h"
+#include "../../../gemeinsam/utility/user.h"
 #include <string>
 #include <list>
 
@@ -13,13 +14,21 @@ using namespace std;
 nhill::datenzugriff::ab_oil_pressure_test::txt::Txt_raw_facade::
 Txt_raw_facade()
 {
-	in_.open( ab_oil_pressure_test::Configuration::instance().txt.path );
+	std::filesystem::path path_txt{ ab_oil_pressure_test::Configuration::instance().txt.path };
+	in_.open( path_txt );
 	if( !in_.is_open() )
 	{
 		string msg{ "Failed to open the text data '" };
 		msg.append( ab_oil_pressure_test::Configuration::instance().txt.path.string() ).append( "'." );
 		throw exception( msg.c_str() );
 	}
+
+	std::filesystem::path path_twpidx{ user::local_app( user::Bemühen, user::ab_oil_pressure_test, "", "twp.idx" ) };
+	if( !filesystem::exists( path_twpidx ) )
+	{
+		parse::build_township_index( path_twpidx, path_txt );
+	}
+	parse::read_township_index( twpidx_, path_twpidx );
 }
 
 nhill::datenzugriff::ab_oil_pressure_test::txt::Txt_raw_facade::
@@ -34,8 +43,12 @@ find_test_by_uwi( const uwi::Dls& uwi )->Test_container
 	string uwi_raw{ parse::uwi_sort_to_raw( uwi.sort() ) };
 	list<Parse> parse_list{ parse::uwi };
 
+	// Clear out any errors
 	in_.clear();
-	in_.seekg( 0 );
+
+	// Set the position of the stream
+	std::streampos idx{ find_index( uwi.twp )};
+	in_.seekg( idx );
 
 	list<Txt_test> raw_tests;
 	Txt_test raw_test;
@@ -135,3 +148,18 @@ find_test_by_test_type( const std::list<Test_type>& test_types )->Test_container
 {
 	return Test_container();
 }
+
+auto nhill::datenzugriff::ab_oil_pressure_test::txt::Txt_raw_facade::
+find_index( const uwi::Dls::Township& twp ) const->std::streampos
+{
+	auto itr{ twpidx_.find( twp.value() ) };
+	if( itr == twpidx_.end() )
+	{
+		return 0;
+	}
+	else
+	{
+		return itr->second;
+	}
+}
+

@@ -10,7 +10,8 @@ const nhill::text::Bundle_container<nhill::datenzugriff::ab_oil_pressure_test::S
       //
       { Source::txt,   { {Text::string, "txt"	}, {Text::label, "Gov't Text File" } } },
       { Source::mysql, { {Text::string, "mysql"	}, {Text::label, "MySql Database"  } } },
-   };
+		{ Source::xml  , { {Text::string, "xml"	}, {Text::label, "XML Database"  } } },
+	};
 
    return bundles;
 }

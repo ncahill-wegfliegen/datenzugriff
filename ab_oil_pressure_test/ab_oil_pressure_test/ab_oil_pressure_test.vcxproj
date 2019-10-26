@@ -20,9 +20,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="facade.cpp" />
+    <ClCompile Include="field.cpp" />
+    <ClCompile Include="field_index.cpp" />
+    <ClCompile Include="field_index_facade.cpp" />
+    <ClCompile Include="field_index_facade_interface.cpp" />
+    <ClCompile Include="field_index_facade_xml.cpp" />
+    <ClCompile Include="field_pool.cpp" />
     <ClCompile Include="licensee.cpp" />
     <ClCompile Include="licensee_container.cpp" />
+    <ClCompile Include="licensee_index_facade.cpp" />
+    <ClCompile Include="licensee_index_facade_xml.cpp" />
+    <ClCompile Include="licensee_index.cpp" />
+    <ClCompile Include="licensee_index_facade_interface.cpp" />
     <ClCompile Include="mysql_facade.cpp" />
+    <ClCompile Include="pool.cpp" />
     <ClCompile Include="source_ex.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="configuration.cpp" />
@@ -58,15 +69,32 @@
     <ClCompile Include="txt_record00.cpp" />
     <ClCompile Include="txt_write.cpp" />
     <ClCompile Include="xml_configuration.cpp" />
+    <ClCompile Include="xml_field.cpp" />
+    <ClCompile Include="xml_field_index.cpp" />
+    <ClCompile Include="xml_field_pool.cpp" />
+    <ClCompile Include="xml_licensee_index.cpp" />
     <ClCompile Include="xml_mysql_configuration.cpp" />
+    <ClCompile Include="xml_pool.cpp" />
     <ClCompile Include="xml_txt_configuration.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="facade.h" />
+    <ClInclude Include="field.h" />
+    <ClInclude Include="field_index.h" />
+    <ClInclude Include="field_index_facade.h" />
+    <ClInclude Include="field_index_facade_interface.h" />
+    <ClInclude Include="field_index_facade_xml.h" />
+    <ClInclude Include="field_pool.h" />
+    <ClInclude Include="field_pool_container.h" />
     <ClInclude Include="key_container.h" />
     <ClInclude Include="licensee.h" />
     <ClInclude Include="licensee_container.h" />
+    <ClInclude Include="licensee_index_facade.h" />
+    <ClInclude Include="licensee_index_facade_xml.h" />
+    <ClInclude Include="licensee_index.h" />
+    <ClInclude Include="licensee_index_facade_interface.h" />
     <ClInclude Include="mysql_facade.h" />
+    <ClInclude Include="pool.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="source.h" />
     <ClInclude Include="source_ex.h" />
@@ -111,7 +139,12 @@
     <ClInclude Include="txt_record00.h" />
     <ClInclude Include="txt_write.h" />
     <ClInclude Include="xml_configuration.h" />
+    <ClInclude Include="xml_field.h" />
+    <ClInclude Include="xml_field_index.h" />
+    <ClInclude Include="xml_field_pool.h" />
+    <ClInclude Include="xml_licensee_index.h" />
     <ClInclude Include="xml_mysql_configuration.h" />
+    <ClInclude Include="xml_pool.h" />
     <ClInclude Include="xml_txt_configuration.h" />
   </ItemGroup>
   <ItemGroup>

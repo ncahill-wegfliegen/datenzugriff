@@ -124,6 +124,54 @@
     <ClCompile Include="txt_raw_facade.cpp">
       <Filter>facade</Filter>
     </ClCompile>
+    <ClCompile Include="licensee_index.cpp">
+      <Filter>licensee</Filter>
+    </ClCompile>
+    <ClCompile Include="xml_licensee_index.cpp">
+      <Filter>licensee</Filter>
+    </ClCompile>
+    <ClCompile Include="licensee_index_facade_interface.cpp">
+      <Filter>licensee</Filter>
+    </ClCompile>
+    <ClCompile Include="licensee_index_facade_xml.cpp">
+      <Filter>licensee</Filter>
+    </ClCompile>
+    <ClCompile Include="field_index.cpp">
+      <Filter>field</Filter>
+    </ClCompile>
+    <ClCompile Include="field_index_facade_interface.cpp">
+      <Filter>field</Filter>
+    </ClCompile>
+    <ClCompile Include="xml_field_index.cpp">
+      <Filter>field</Filter>
+    </ClCompile>
+    <ClCompile Include="field_index_facade_xml.cpp">
+      <Filter>field</Filter>
+    </ClCompile>
+    <ClCompile Include="field_index_facade.cpp">
+      <Filter>field</Filter>
+    </ClCompile>
+    <ClCompile Include="field.cpp">
+      <Filter>field</Filter>
+    </ClCompile>
+    <ClCompile Include="pool.cpp">
+      <Filter>field</Filter>
+    </ClCompile>
+    <ClCompile Include="xml_field.cpp">
+      <Filter>field</Filter>
+    </ClCompile>
+    <ClCompile Include="licensee_index_facade.cpp">
+      <Filter>licensee</Filter>
+    </ClCompile>
+    <ClCompile Include="xml_pool.cpp">
+      <Filter>field</Filter>
+    </ClCompile>
+    <ClCompile Include="xml_field_pool.cpp">
+      <Filter>field</Filter>
+    </ClCompile>
+    <ClCompile Include="field_pool.cpp">
+      <Filter>field</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="record.h">
@@ -271,6 +319,57 @@
     <ClInclude Include="txt_raw_facade.h">
       <Filter>facade</Filter>
     </ClInclude>
+    <ClInclude Include="licensee_index.h">
+      <Filter>licensee</Filter>
+    </ClInclude>
+    <ClInclude Include="xml_licensee_index.h">
+      <Filter>licensee</Filter>
+    </ClInclude>
+    <ClInclude Include="licensee_index_facade_interface.h">
+      <Filter>licensee</Filter>
+    </ClInclude>
+    <ClInclude Include="licensee_index_facade_xml.h">
+      <Filter>licensee</Filter>
+    </ClInclude>
+    <ClInclude Include="licensee_index_facade.h">
+      <Filter>licensee</Filter>
+    </ClInclude>
+    <ClInclude Include="field_index.h">
+      <Filter>field</Filter>
+    </ClInclude>
+    <ClInclude Include="field_index_facade_interface.h">
+      <Filter>field</Filter>
+    </ClInclude>
+    <ClInclude Include="xml_field_index.h">
+      <Filter>field</Filter>
+    </ClInclude>
+    <ClInclude Include="field_index_facade_xml.h">
+      <Filter>field</Filter>
+    </ClInclude>
+    <ClInclude Include="field_index_facade.h">
+      <Filter>field</Filter>
+    </ClInclude>
+    <ClInclude Include="field.h">
+      <Filter>field</Filter>
+    </ClInclude>
+    <ClInclude Include="pool.h">
+      <Filter>field</Filter>
+    </ClInclude>
+    <ClInclude Include="xml_field.h">
+      <Filter>field</Filter>
+    </ClInclude>
+    <ClInclude Include="xml_pool.h">
+      <Filter>field</Filter>
+    </ClInclude>
+    <ClInclude Include="xml_field_pool.h">
+      <Filter>field</Filter>
+    </ClInclude>
+    <ClInclude Include="field_pool.h">
+      <Filter>field</Filter>
+    </ClInclude>
+    <ClInclude Include="field_pool_container.h">
+      <Filter>field</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="record">
@@ -299,6 +398,9 @@
     </Filter>
     <Filter Include="licensee">
       <UniqueIdentifier>{b78f397c-9dd6-4838-a840-2a7bdacb216c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="field">
+      <UniqueIdentifier>{fa92e79e-a2e6-4d5d-98e2-1f30ec3e0a73}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

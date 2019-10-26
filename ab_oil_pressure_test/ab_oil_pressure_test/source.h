@@ -13,6 +13,7 @@ enum class Source
 
    txt,
    mysql,
+	xml,
 };
 
 }

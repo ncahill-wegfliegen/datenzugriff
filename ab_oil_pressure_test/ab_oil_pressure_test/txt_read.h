@@ -8,10 +8,6 @@
 
 namespace nhill
 {
-namespace uwi
-{
-class Dls;
-}
 
 namespace datenzugriff
 {
@@ -38,6 +34,7 @@ NHILL_DZG_ABOPT_PORT_FUNCTION bool read( Record03& rec, std::string_view str );
 NHILL_DZG_ABOPT_PORT_FUNCTION bool read( Record04& rec, std::string_view str );
 NHILL_DZG_ABOPT_PORT_FUNCTION bool read( Record05& rec, std::string_view str );
 NHILL_DZG_ABOPT_PORT_FUNCTION bool read( Test& test, std::istream& in );
+
 
 }
 }

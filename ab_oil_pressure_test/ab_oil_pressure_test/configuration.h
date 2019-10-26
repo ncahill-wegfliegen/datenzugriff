@@ -30,9 +30,8 @@ public:
 protected:
    Configuration();
 
-
-   static constexpr const char* const filename{ "ab_oil_pressure_test.config" };
-
+	#pragma warning(suppress:4251)
+	std::filesystem::path path_;
 };
 
 }

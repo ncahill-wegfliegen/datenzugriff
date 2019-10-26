@@ -209,6 +209,7 @@ xcopy "C:\Program Files\MySQL\MySQL Connector C++ 8.0\lib64\ssleay32.dll" "$(Sol
   <ItemGroup>
     <ClCompile Include="data.cpp" />
     <ClCompile Include="facade_test.cpp" />
+    <ClCompile Include="field_index_test.cpp" />
     <ClCompile Include="licensee_test.cpp" />
     <ClCompile Include="mysql_select_test.cpp" />
     <ClCompile Include="my_sql_test.cpp" />

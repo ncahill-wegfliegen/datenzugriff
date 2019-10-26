@@ -7,6 +7,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ab_oil_pressure_test", "ab_
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ab_oil_pressure_test_test", "ab_oil_pressure_test\ab_oil_pressure_test_test\ab_oil_pressure_test_test.vcxproj", "{9CF08E02-5A13-4BA0-9A3B-27715DABC09D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ab_oil_pressure_test_idx", "ab_oil_pressure_test_idx\ab_oil_pressure_test_idx.vcxproj", "{7462027D-5127-41F7-B094-283CBCE7C9C4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "business_associate_dzg", "business_associate_dzg\business_associate_dzg.vcxproj", "{4836150A-58DD-4970-A267-9208BF83AF2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -31,6 +35,22 @@ Global
 		{9CF08E02-5A13-4BA0-9A3B-27715DABC09D}.Release|Win32.Build.0 = Release|Win32
 		{9CF08E02-5A13-4BA0-9A3B-27715DABC09D}.Release|x64.ActiveCfg = Release|x64
 		{9CF08E02-5A13-4BA0-9A3B-27715DABC09D}.Release|x64.Build.0 = Release|x64
+		{7462027D-5127-41F7-B094-283CBCE7C9C4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7462027D-5127-41F7-B094-283CBCE7C9C4}.Debug|Win32.Build.0 = Debug|Win32
+		{7462027D-5127-41F7-B094-283CBCE7C9C4}.Debug|x64.ActiveCfg = Debug|x64
+		{7462027D-5127-41F7-B094-283CBCE7C9C4}.Debug|x64.Build.0 = Debug|x64
+		{7462027D-5127-41F7-B094-283CBCE7C9C4}.Release|Win32.ActiveCfg = Release|Win32
+		{7462027D-5127-41F7-B094-283CBCE7C9C4}.Release|Win32.Build.0 = Release|Win32
+		{7462027D-5127-41F7-B094-283CBCE7C9C4}.Release|x64.ActiveCfg = Release|x64
+		{7462027D-5127-41F7-B094-283CBCE7C9C4}.Release|x64.Build.0 = Release|x64
+		{4836150A-58DD-4970-A267-9208BF83AF2F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4836150A-58DD-4970-A267-9208BF83AF2F}.Debug|Win32.Build.0 = Debug|Win32
+		{4836150A-58DD-4970-A267-9208BF83AF2F}.Debug|x64.ActiveCfg = Debug|x64
+		{4836150A-58DD-4970-A267-9208BF83AF2F}.Debug|x64.Build.0 = Debug|x64
+		{4836150A-58DD-4970-A267-9208BF83AF2F}.Release|Win32.ActiveCfg = Release|Win32
+		{4836150A-58DD-4970-A267-9208BF83AF2F}.Release|Win32.Build.0 = Release|Win32
+		{4836150A-58DD-4970-A267-9208BF83AF2F}.Release|x64.ActiveCfg = Release|x64
+		{4836150A-58DD-4970-A267-9208BF83AF2F}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

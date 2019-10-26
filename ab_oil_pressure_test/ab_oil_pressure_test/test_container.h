@@ -12,6 +12,9 @@ class Test;
 
 using Test_container = std::list<Test>;
 
+using Test_ptr = Test *;
+using Test_ptr_container = std::list<Test*>;
+
 }
 }
 }

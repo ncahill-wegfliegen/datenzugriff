@@ -35,7 +35,7 @@ class NHILL_DZG_ABOPT_PORT_CLASS Facade_interface
 {
 public:
    Facade_interface();
-   ~Facade_interface();
+   virtual ~Facade_interface();
 
    virtual Test_container find_test_by_uwi( const uwi::Dls& uwi ) = 0;
    virtual Test_container find_test_by_licensee_code( const std::string& licensee_code ) = 0;

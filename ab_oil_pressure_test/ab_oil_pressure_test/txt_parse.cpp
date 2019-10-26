@@ -1,8 +1,10 @@
 #include "txt_parse.h"
 #include "../../../gemeinsam/enum/core/int.h"
+#include "../../../gemeinsam/uwi/dls.h"
 #include <sstream>
 #include <iomanip>
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -238,5 +240,70 @@ uwi_raw_to_sort( string raw )->pair<string, int>
 	int consol_interval_num{ stoi( raw.substr( parse::consol_interval_num.pos, parse::consol_interval_num.count ) ) };
 
 	return { oss.str(), consol_interval_num };
+}
+
+bool nhill::datenzugriff::ab_oil_pressure_test::txt::parse::
+build_township_index( const std::filesystem::path& path_out, const std::filesystem::path& path_txt )
+{
+	ifstream in{ path_txt };
+	if( !in.is_open() )
+	{
+		return false;
+	}
+
+	ofstream out{ path_out };
+	if( !out.is_open() )
+	{
+		in.close();
+		return false;
+	}
+
+	string line;
+	string twp{"000"};
+	streampos idx{ 0 }; // The position of the start of the 00 line
+	while( getline( in, line ) )
+	{
+		// we are only looking for 00 records
+		if( get_record_type( line) == Record_type::well_id )
+		{
+			if( line.compare( parse::township.pos, parse::township.count, twp  ) != 0 )
+			{
+				// We have found a new township number
+				twp = line.substr( parse::township.pos, parse::township.count );
+				// Write the township and index to the output file
+				out << twp << '\t' << idx << endl;
+			}
+		}
+
+		// The position of the beginning of the next line
+		idx = in.tellg();
+	}
+
+	out.close();
+	in.close();
+
+	return true;
+}
+
+bool nhill::datenzugriff::ab_oil_pressure_test::txt::parse::
+read_township_index( Twpidx_container& twpidxs, const std::filesystem::path& path )
+{
+	ifstream in{ path };
+	if( !in.is_open() )
+	{
+		return false;
+	}
+
+	unsigned twp;
+	long idx;
+
+	while( !in.eof() )
+	{
+		in >> twp >> idx;
+		twpidxs.emplace( twp, idx );
+	}
+	in.close();
+
+	return true;
 }
 

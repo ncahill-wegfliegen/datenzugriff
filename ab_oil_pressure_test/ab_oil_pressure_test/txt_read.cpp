@@ -12,9 +12,9 @@
 #include "../../../gemeinsam/enum/core/int.h"
 #include <string>
 #include <vector>
+#include <fstream>
 
 using namespace std;
-
 
 namespace
 {
@@ -355,3 +355,5 @@ bool nhill::datenzugriff::ab_oil_pressure_test::txt::read( Test& test, istream& 
 
    return true;
 }
+
+
